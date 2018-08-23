@@ -1,0 +1,54 @@
+rdt.transformers package
+========================
+
+Submodules
+----------
+
+rdt.transformers.BaseTransformer module
+---------------------------------------
+
+.. automodule:: rdt.transformers.BaseTransformer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rdt.transformers.CatTransformer module
+--------------------------------------
+
+.. automodule:: rdt.transformers.CatTransformer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rdt.transformers.DTTransformer module
+-------------------------------------
+
+.. automodule:: rdt.transformers.DTTransformer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rdt.transformers.NullTransformer module
+---------------------------------------
+
+.. automodule:: rdt.transformers.NullTransformer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rdt.transformers.NumberTransformer module
+-----------------------------------------
+
+.. automodule:: rdt.transformers.NumberTransformer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: rdt.transformers
+    :members:
+    :undoc-members:
+    :show-inheritance:

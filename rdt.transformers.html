@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rdt.transformers package &mdash; RDT 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="rdt package" href="rdt.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RDT
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">rdt</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="rdt.html">rdt package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="rdt.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rdt.transformers package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.hyper_transformer">rdt.hyper_transformer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.rdt">rdt.rdt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.utils">rdt.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RDT</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">rdt</a> &raquo;</li>
+        
+          <li><a href="rdt.html">rdt package</a> &raquo;</li>
+        
+      <li>rdt.transformers package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/HDI-Project/rdt/blob/master/docs/rdt.transformers.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rdt-transformers-package">
+<h1>rdt.transformers package<a class="headerlink" href="#rdt-transformers-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-rdt.transformers.BaseTransformer">
+<span id="rdt-transformers-basetransformer-module"></span><h2>rdt.transformers.BaseTransformer module<a class="headerlink" href="#module-rdt.transformers.BaseTransformer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rdt.transformers.BaseTransformer.BaseTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.BaseTransformer.</code><code class="descname">BaseTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is responsible for formatting the input table in
+a way that is machine learning friendly</p>
+<dl class="method">
+<dt id="rdt.transformers.BaseTransformer.BaseTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.BaseTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the processed table</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.BaseTransformer.BaseTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.BaseTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.BaseTransformer.BaseTransformer.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.BaseTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the required transformations to the data</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rdt.transformers.CatTransformer">
+<span id="rdt-transformers-cattransformer-module"></span><h2>rdt.transformers.CatTransformer module<a class="headerlink" href="#module-rdt.transformers.CatTransformer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rdt.transformers.CatTransformer.CatTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.CatTransformer.</code><code class="descname">CatTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.CatTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the categorical transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.CatTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.CatTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.CatTransformer.get_probability_map">
+<code class="descname">get_probability_map</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.get_probability_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.CatTransformer.get_probability_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps each unique value to probability of seeing it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.CatTransformer.get_reverse_cat">
+<code class="descname">get_reverse_cat</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.get_reverse_cat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.CatTransformer.get_reverse_cat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a converter that takes in a value and turns
+it back into a category</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.CatTransformer.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.CatTransformer.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts cat value into num between 0 and 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.CatTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.CatTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rdt.transformers.DTTransformer">
+<span id="rdt-transformers-dttransformer-module"></span><h2>rdt.transformers.DTTransformer module<a class="headerlink" href="#module-rdt.transformers.DTTransformer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rdt.transformers.DTTransformer.DTTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.DTTransformer.</code><code class="descname">DTTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.DTTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the datetime transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.DTTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.DTTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.DTTransformer.get_date_converter">
+<code class="descname">get_date_converter</code><span class="sig-paren">(</span><em>col</em>, <em>meta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.get_date_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.DTTransformer.get_date_converter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns a converter that takes in an integer representing ms</dt>
+<dd>and turns it into a string date</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>col</strong> (<em>str</em>) – name of column</li>
+<li><strong>missing</strong> (<em>bool</em>) – true if column has NULL values</li>
+<li><strong>meta</strong> (<em>str</em>) – type of column values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">function</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.DTTransformer.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.DTTransformer.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts datetime to number</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.DTTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.DTTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rdt.transformers.NullTransformer">
+<span id="rdt-transformers-nulltransformer-module"></span><h2>rdt.transformers.NullTransformer module<a class="headerlink" href="#module-rdt.transformers.NullTransformer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rdt.transformers.NullTransformer.NullTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.NullTransformer.</code><code class="descname">NullTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.NullTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the datetime transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.NullTransformer.NullTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.NullTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NullTransformer.NullTransformer.get_null_converter">
+<code class="descname">get_null_converter</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer.get_null_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.NullTransformer.get_null_converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a converter that takes a value and replaces
+it with null if it’s supposed to be missing
+:param col: name of column
+:type col: str
+:param meta: type of column values
+:type meta: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NullTransformer.NullTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.NullTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rdt.transformers.NumberTransformer">
+<span id="rdt-transformers-numbertransformer-module"></span><h2>rdt.transformers.NumberTransformer module<a class="headerlink" href="#module-rdt.transformers.NumberTransformer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rdt.transformers.NumberTransformer.NumberTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.NumberTransformer.</code><code class="descname">NumberTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.NumberTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the datetime transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.NumberTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.NumberTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.NumberTransformer.get_number_converter">
+<code class="descname">get_number_converter</code><span class="sig-paren">(</span><em>col</em>, <em>meta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.get_number_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.NumberTransformer.get_number_converter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns a converter that takes in a value and turns it into an</dt>
+<dd>integer, if necessary</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>col</strong> (<em>str</em>) – name of column</li>
+<li><strong>missing</strong> (<em>bool</em>) – true if column has NULL values</li>
+<li><strong>meta</strong> (<em>str</em>) – type of column values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">function</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.NumberTransformer.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.NumberTransformer.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts to int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.NumberTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.NumberTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rdt.transformers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rdt.transformers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rdt.transformers.BaseTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.</code><code class="descname">BaseTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is responsible for formatting the input table in
+a way that is machine learning friendly</p>
+<dl class="method">
+<dt id="rdt.transformers.BaseTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the processed table</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.BaseTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.BaseTransformer.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/BaseTransformer.html#BaseTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.BaseTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the required transformations to the data</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.CatTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.</code><code class="descname">CatTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the categorical transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.get_probability_map">
+<code class="descname">get_probability_map</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.get_probability_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.get_probability_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps each unique value to probability of seeing it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.get_reverse_cat">
+<code class="descname">get_reverse_cat</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.get_reverse_cat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.get_reverse_cat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a converter that takes in a value and turns
+it back into a category</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts cat value into num between 0 and 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.CatTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/CatTransformer.html#CatTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CatTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.DTTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.</code><code class="descname">DTTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the datetime transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.get_date_converter">
+<code class="descname">get_date_converter</code><span class="sig-paren">(</span><em>col</em>, <em>meta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.get_date_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.get_date_converter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns a converter that takes in an integer representing ms</dt>
+<dd>and turns it into a string date</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>col</strong> (<em>str</em>) – name of column</li>
+<li><strong>missing</strong> (<em>bool</em>) – true if column has NULL values</li>
+<li><strong>meta</strong> (<em>str</em>) – type of column values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">function</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts datetime to number</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.DTTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/DTTransformer.html#DTTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DTTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.NullTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.</code><code class="descname">NullTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the datetime transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.NullTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NullTransformer.get_null_converter">
+<code class="descname">get_null_converter</code><span class="sig-paren">(</span><em>col</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer.get_null_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.get_null_converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a converter that takes a value and replaces
+it with null if it’s supposed to be missing
+:param col: name of column
+:type col: str
+:param meta: type of column values
+:type meta: str</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NullTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NullTransformer.html#NullTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NullTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.NumberTransformer">
+<em class="property">class </em><code class="descclassname">rdt.transformers.</code><code class="descname">NumberTransformer</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rdt.transformers.BaseTransformer.BaseTransformer" title="rdt.transformers.BaseTransformer.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.BaseTransformer.BaseTransformer</span></code></a></p>
+<p>This class represents the datetime transformer for SDV</p>
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple (transformed_table, new_table_meta)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.get_number_converter">
+<code class="descname">get_number_converter</code><span class="sig-paren">(</span><em>col</em>, <em>meta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.get_number_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.get_number_converter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns a converter that takes in a value and turns it into an</dt>
+<dd>integer, if necessary</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>col</strong> (<em>str</em>) – name of column</li>
+<li><strong>missing</strong> (<em>bool</em>) – true if column has NULL values</li>
+<li><strong>meta</strong> (<em>str</em>) – type of column values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">function</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts to int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.NumberTransformer.reverse_transform">
+<code class="descname">reverse_transform</code><span class="sig-paren">(</span><em>col</em>, <em>col_meta</em>, <em>missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rdt/transformers/NumberTransformer.html#NumberTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.NumberTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rdt.html" class="btn btn-neutral" title="rdt package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, MIT Data To AI Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
