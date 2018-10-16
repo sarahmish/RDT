@@ -27,14 +27,6 @@ rdt.rdt module
     :undoc-members:
     :show-inheritance:
 
-rdt.utils module
-----------------
-
-.. automodule:: rdt.utils
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 
 Module contents
 ---------------

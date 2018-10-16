@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.CatTransformer &mdash; RDT 0.1.0 documentation</title>
+  <title>rdt.transformers.CatTransformer &mdash; RDT 0.1.1 documentation</title>
   
 
   
@@ -90,7 +90,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt.hyper_transformer">rdt.hyper_transformer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt.rdt">rdt.rdt module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt.utils">rdt.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt">Module contents</a></li>
 </ul>
 </li>
@@ -163,6 +162,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../transformers.html">rdt.transformers</a> &raquo;</li>
+        
       <li>rdt.transformers.CatTransformer</li>
     
     
@@ -188,21 +189,37 @@
 
 
 <div class="viewcode-block" id="CatTransformer"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer">[docs]</a><span class="k">class</span> <span class="nc">CatTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This class represents the categorical transformer for SDV</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Transformer for categorical data.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; initialize transformer &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Initialize transformer.&quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;categorical&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># val -&gt; ((a,b), mean, std)</span>
 
-<div class="viewcode-block" id="CatTransformer.fit_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Returns a tuple (transformed_table, new_table_meta) &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CatTransformer.fit_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prepare the transformer to convert data and return the processed table.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col(pandas.DataFrame): Data to transform.</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">col_meta</span> <span class="o">=</span> <span class="n">col_meta</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_meta</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span> <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">missing</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_data_type</span><span class="p">(</span><span class="n">col_meta</span><span class="p">)</span>
+
         <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-        <span class="n">col_name</span> <span class="o">=</span> <span class="n">col_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span> <span class="o">=</span> <span class="n">col_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">get_probability_map</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-        <span class="n">out</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_val</span><span class="p">)</span>
+
+        <span class="c1"># Make sure all nans are handled the same by replacing with None</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
+        <span class="n">out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_val</span><span class="p">)</span>
         <span class="c1"># Handle missing</span>
 
         <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
@@ -212,44 +229,55 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="CatTransformer.reverse_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Converts data back into original format &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CatTransformer.reverse_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts data back into original format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col(pandas.DataFrame): Data to transform.</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">col_meta</span> <span class="o">=</span> <span class="n">col_meta</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_meta</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span> <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">missing</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_data_type</span><span class="p">(</span><span class="n">col_meta</span><span class="p">)</span>
+
         <span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
         <span class="n">col_name</span> <span class="o">=</span> <span class="n">col_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-        <span class="n">fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_reverse_cat</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_reverse_cat</span><span class="p">(</span><span class="n">col_name</span><span class="p">)</span>
+        <span class="n">new_col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
-            <span class="n">new_col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">new_col</span> <span class="o">=</span> <span class="n">new_col</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">col_name</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">new_col</span><span class="p">,</span> <span class="n">col</span><span class="p">[</span><span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">col_name</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">nt</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">()</span>
             <span class="n">output</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-            <span class="n">output</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_col</span>
 
         <span class="k">return</span> <span class="n">output</span></div>
 
 <div class="viewcode-block" id="CatTransformer.get_val"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.get_val">[docs]</a>    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Converts cat value into num between 0 and 1 &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Convert cat value into num between 0 and 1.&quot;&quot;&quot;</span>
         <span class="n">interval</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
         <span class="n">new_val</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_val</span></div>
 
-<div class="viewcode-block" id="CatTransformer.get_reverse_cat"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.get_reverse_cat">[docs]</a>    <span class="k">def</span> <span class="nf">get_reverse_cat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Returns a converter that takes in a value and turns</span>
-<span class="sd">        it back into a category</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+<div class="viewcode-block" id="CatTransformer.get_reverse_cat"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.get_reverse_cat">[docs]</a>    <span class="k">def</span> <span class="nf">get_reverse_cat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a converter that takes in a value and turns it back into a category.&quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">reverse_cat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
             <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
 
             <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="p">:</span>
                 <span class="n">interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="p">[</span><span class="n">val</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-                    <span class="n">res</span> <span class="o">=</span> <span class="n">val</span>
-                    <span class="k">return</span> <span class="n">res</span>
+                <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">interval</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">val</span>
 
             <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
@@ -257,14 +285,9 @@
         <span class="k">return</span> <span class="n">reverse_cat</span></div>
 
 <div class="viewcode-block" id="CatTransformer.get_probability_map"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.CatTransformer.CatTransformer.get_probability_map">[docs]</a>    <span class="k">def</span> <span class="nf">get_probability_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Maps each unique value to probability of seeing it &quot;&quot;&quot;</span>
-        <span class="c1"># According to pandas docs, nan values are excluded on groupby:</span>
-        <span class="c1"># http://pandas.pydata.org/pandas-docs/stable/missing_data.html#na-values-in-groupby</span>
-        <span class="c1"># So we are replacing them with -1 and replace them back with np.nan after groupby</span>
-        <span class="c1"># Further discussion: https://github.com/pandas-dev/pandas/issues/3729</span>
-
-        <span class="n">column</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">})</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="sd">&quot;&quot;&quot;Maps each unique value to probability of seeing it.&quot;&quot;&quot;</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probability_map</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
         <span class="c1"># next set probability ranges on interval [0,1]</span>
         <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">num_vals</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
@@ -287,7 +310,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab.
+        &copy; Copyright 2018, MIT Data To AI Lab
 
     </p>
   </div>
@@ -306,20 +329,14 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.BaseTransformer &mdash; RDT 0.1.0 documentation</title>
+  <title>rdt.transformers.BaseTransformer &mdash; RDT 0.1.1 documentation</title>
   
 
   
@@ -90,7 +90,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt.hyper_transformer">rdt.hyper_transformer module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt.rdt">rdt.rdt module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt.utils">rdt.utils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../rdt.html#module-rdt">Module contents</a></li>
 </ul>
 </li>
@@ -163,6 +162,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../transformers.html">rdt.transformers</a> &raquo;</li>
+        
       <li>rdt.transformers.BaseTransformer</li>
     
     
@@ -180,26 +181,85 @@
             
   <h1>Source code for rdt.transformers.BaseTransformer</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="BaseTransformer"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer">[docs]</a><span></span><span class="k">class</span> <span class="nc">BaseTransformer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; This class is responsible for formatting the input table in</span>
-<span class="sd">    a way that is machine learning friendly</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Base class for all transformers.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; initialize preprocessor &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize preprocessor.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+<span class="sd">            transformer_type(str): Type of data the transformer is able to transform.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">col_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">col_meta</span> <span class="o">=</span> <span class="n">col_meta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
 
-<div class="viewcode-block" id="BaseTransformer.fit_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Returns the processed table &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BaseTransformer.fit"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prepare the transformer to convert data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col(pandas.DataFrame): Data to transform.</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="BaseTransformer.transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Does the required transformations to the data &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BaseTransformer.transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Does the required transformations to the data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col(pandas.DataFrame): Data to transform.</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="BaseTransformer.reverse_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Converts data back into original format &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+<div class="viewcode-block" id="BaseTransformer.fit_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prepare the transformer to convert data and return the processed table.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col(pandas.DataFrame): Data to transform.</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransformer.reverse_transform"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts data back into original format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col(pandas.DataFrame): Data to transform.</span>
+<span class="sd">            col_meta(dict): Meta information of the column.</span>
+<span class="sd">            missing(bool): Wheter or not handle missing values using NullTransformer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="BaseTransformer.check_data_type"><a class="viewcode-back" href="../../../rdt.transformers.html#rdt.transformers.BaseTransformer.BaseTransformer.check_data_type">[docs]</a>    <span class="k">def</span> <span class="nf">check_data_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col_meta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check the type of the transformer and column match.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            col_meta(dict): Metadata of the column.</span>
+
+<span class="sd">        Raises a ValueError if the types don&#39;t match</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">col_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Types of transformer don</span><span class="se">\&#39;</span><span class="s1">t match&#39;</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
@@ -212,7 +272,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab.
+        &copy; Copyright 2018, MIT Data To AI Lab
 
     </p>
   </div>
@@ -231,20 +291,14 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
