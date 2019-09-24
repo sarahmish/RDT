@@ -1,0 +1,7 @@
+rdt.transformers.category module
+================================
+
+.. automodule:: rdt.transformers.category
+   :members:
+   :undoc-members:
+   :show-inheritance:

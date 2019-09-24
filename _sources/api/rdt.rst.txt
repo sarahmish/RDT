@@ -1,0 +1,24 @@
+rdt package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+
+   rdt.transformers
+
+Submodules
+----------
+
+.. toctree::
+
+   rdt.hyper_transformer
+
+Module contents
+---------------
+
+.. automodule:: rdt
+   :members:
+   :undoc-members:
+   :show-inheritance:

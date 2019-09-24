@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview: module code &mdash; RDT 0.1.3 documentation</title>
+  <title>rdt &mdash; RDT 0.1.3 documentation</title>
   
 
   
@@ -200,7 +200,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Overview: module code</li>
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>rdt</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -215,16 +217,78 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>All modules for which code is available</h1>
-<ul><li><a href="rdt.html">rdt</a></li>
-<ul><li><a href="rdt/hyper_transformer.html">rdt.hyper_transformer</a></li>
-<li><a href="rdt/transformers/base.html">rdt.transformers.base</a></li>
-<li><a href="rdt/transformers/category.html">rdt.transformers.category</a></li>
-<li><a href="rdt/transformers/datetime.html">rdt.transformers.datetime</a></li>
-<li><a href="rdt/transformers/null.html">rdt.transformers.null</a></li>
-<li><a href="rdt/transformers/number.html">rdt.transformers.number</a></li>
-<li><a href="rdt/transformers/positive_number.html">rdt.transformers.positive_number</a></li>
-</ul></ul>
+  <h1>Source code for rdt</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;Top-level package for RDT.&quot;&quot;&quot;</span>
+
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;MIT Data To AI Lab&quot;&quot;&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s1">&#39;dailabmit@gmail.com&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.1.3&#39;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">rdt.hyper_transformer</span> <span class="k">import</span> <span class="n">HyperTransformer</span>
+
+
+<span class="k">def</span> <span class="nf">_lookup</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">element</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="load_data"><a class="viewcode-back" href="../api/rdt.html#rdt.load_data">[docs]</a><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">metadata_path</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Load the metadata and data from the indicated table.</span>
+
+<span class="sd">    If a column name is also given, restrict the data and metadata results</span>
+<span class="sd">    to the indicated column.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        metadata_path (str):</span>
+<span class="sd">            Path to the metadata file.</span>
+<span class="sd">        table_name (str):</span>
+<span class="sd">            Name of the table.</span>
+<span class="sd">        column_name (str):</span>
+<span class="sd">            Name of the column. Optional.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pandas.DataFrame, dict</span>
+<span class="sd">            * Table or column loaded as a ``pandas.DataFrame``.</span>
+<span class="sd">            * The table or column metadata.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">metadata_file</span><span class="p">:</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">metadata_file</span><span class="p">)</span>
+
+    <span class="n">table_metadata</span> <span class="o">=</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+
+    <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">metadata_path</span><span class="p">),</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span>
+        <span class="n">table_metadata</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">table_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">column_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">table_data</span><span class="p">,</span> <span class="n">table_metadata</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">column_metadata</span> <span class="o">=</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">table_metadata</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">],</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)</span>
+        <span class="n">column_data</span> <span class="o">=</span> <span class="n">table_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">column_data</span><span class="p">,</span> <span class="n">column_metadata</span></div>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;HyperTransformer&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;load_data&#39;</span>
+<span class="p">]</span>
+</pre></div>
 
            </div>
            

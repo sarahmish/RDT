@@ -1,0 +1,7 @@
+rdt.transformers.datetime module
+================================
+
+.. automodule:: rdt.transformers.datetime
+   :members:
+   :undoc-members:
+   :show-inheritance:

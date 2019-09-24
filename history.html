@@ -8,48 +8,55 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; RDT 0.1.1 documentation</title>
+  <title>History &mdash; RDT 0.1.3 documentation</title>
   
 
   
   
+    <link rel="shortcut icon" href="_static/dai-logo-white.ico"/>
+  
   
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Credits" href="authors.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
             <a href="index.html" class="icon icon-home"> RDT
           
 
+          
+            
+            <img src="_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,26 +81,51 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">RDT: Reversible Data Transforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#overview">Overview</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">rdt</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rdt.html">rdt package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rdt.transformers.html">rdt.transformers package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-with-pip">Install with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-sources">Install from sources</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.hyper_transformer">rdt.hyper_transformer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.rdt">rdt.rdt module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#transforming-a-column">Transforming a column</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-transformer">2. Load the transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-column-data">3. Transform the column data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#transforming-a-table">Transforming a table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-table-data">3. Transform the table data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api/rdt.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/rdt.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/rdt.transformers.html">rdt.transformers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/rdt.transformers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rdt.transformers.html#module-rdt.transformers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/rdt.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/rdt.hyper_transformer.html">rdt.hyper_transformer module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/rdt.html#module-rdt">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
@@ -112,8 +144,16 @@
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-improvements">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -161,14 +201,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>History</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/HDI-Project/rdt/blob/master/docs/history.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HDI-Project/RDT/blob/master/docs/history.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -182,7 +222,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="history">
+<h1>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>0.1.3 - 2019-09-24<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add attributes NullTransformer and col_meta. - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/30">#30</a> by &#64;ManuelAlvarezC</p></li>
+</ul>
+</div>
+<div class="section" id="general-improvements">
+<h3>General Improvements<a class="headerlink" href="#general-improvements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Integrate with CodeCov - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/89">#89</a> by &#64;csala</p></li>
+<li><p>Remake Sphinx Documentation - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/96">#96</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Improve README - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/92">#92</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Document RELEASE workflow - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/93">#93</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Add support to Python 3.7 - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/38">#38</a> by &#64;ManuelAlvarezC</p></li>
+<li><p>Create way to pass HyperTransformer table dict - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/45">#45</a> by &#64;ManuelAlvarezC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>0.1.2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add a numerical transformer for positive numbers.</p></li>
+<li><p>Add option to anonymize data on categorical transformer.</p></li>
+<li><p>Move the <code class="docutils literal notranslate"><span class="pre">col_meta</span></code> argument from method-level to class-level.</p></li>
+<li><p>Move the logic for missing values from the transformers into the <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code>.</p></li>
+<li><p>Removed unreacheble lines in <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Numbertransfomer</span></code> to set default value to 0 when the column is null.</p></li>
+<li><p>Add a CLA for collaborators.</p></li>
+<li><p>Refactor performance-wise the transformers.</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>0.1.1<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Improve handling of NaN in NumberTransformer and CatTransformer.</p></li>
+<li><p>Add unittests for HyperTransformer.</p></li>
+<li><p>Remove unused methods <code class="docutils literal notranslate"><span class="pre">get_types</span></code> and <code class="docutils literal notranslate"><span class="pre">impute_table</span></code> from HyperTransformer.</p></li>
+<li><p>Make NumberTransformer enforce dtype int on integer data.</p></li>
+<li><p>Make DTTransformer check data format before transforming.</p></li>
+<li><p>Add minimal API Reference.</p></li>
+<li><p>Merge <code class="docutils literal notranslate"><span class="pre">rdt.utils</span></code> into <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> class.</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>0.1.0<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>First release on PyPI.</p></li>
+</ul>
+</div>
+</div>
+
 
            </div>
            
@@ -192,7 +286,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="authors.html" class="btn btn-neutral" title="Credits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="authors.html" class="btn btn-neutral float-left" title="Credits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -201,7 +295,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
+        &copy; Copyright 2019, MIT Data To AI Lab
 
     </p>
   </div>
@@ -218,26 +312,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

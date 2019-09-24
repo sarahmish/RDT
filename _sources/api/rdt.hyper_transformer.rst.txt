@@ -1,0 +1,7 @@
+rdt.hyper\_transformer module
+=============================
+
+.. automodule:: rdt.hyper_transformer
+   :members:
+   :undoc-members:
+   :show-inheritance:

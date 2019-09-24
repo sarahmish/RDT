@@ -8,48 +8,55 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to RDT’s documentation! &mdash; RDT 0.1.1 documentation</title>
+  <title>RDT: Reversible Data Transforms &mdash; RDT 0.1.3 documentation</title>
   
 
   
   
+    <link rel="shortcut icon" href="_static/dai-logo-white.ico"/>
+  
   
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="readme.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="next" title="RDT: Reversible Data Transforms" href="readme.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
             <a href="#" class="icon icon-home"> RDT
           
 
+          
+            
+            <img src="_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,26 +81,51 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">RDT: Reversible Data Transforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-with-pip">Install with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-sources">Install from sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#transforming-a-column">Transforming a column</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-transformer">2. Load the transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-column-data">3. Transform the column data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#transforming-a-table">Transforming a table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-table-data">3. Transform the table data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/rdt.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/rdt.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/rdt.transformers.html">rdt.transformers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/rdt.transformers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rdt.transformers.html#module-rdt.transformers">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">rdt</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rdt.html">rdt package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rdt.transformers.html">rdt.transformers package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.hyper_transformer">rdt.hyper_transformer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt.rdt">rdt.rdt module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.html#module-rdt">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rdt.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/rdt.hyper_transformer.html">rdt.hyper_transformer module</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="api/rdt.html#module-rdt">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
@@ -112,8 +144,16 @@
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="history.html#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="history.html#general-improvements">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id9">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id10">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id11">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -161,14 +201,14 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Welcome to RDT’s documentation!</li>
+      <li>RDT: Reversible Data Transforms</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/HDI-Project/rdt/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HDI-Project/RDT/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -182,43 +222,274 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-rdt-s-documentation">
-<h1>Welcome to RDT’s documentation!<a class="headerlink" href="#welcome-to-rdt-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <p align="left">
+<img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt=“Copulas” />
+<i>An open source project from Data to AI Lab at MIT.</i>
+</p><a class="reference external image-reference" href="https://pypi.python.org/pypi/RDT"><img alt="PyPi Shield" src="https://img.shields.io/pypi/v/RDT.svg" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/HDI-Project/RDT"><img alt="Travis CI Shield" src="https://travis-ci.org/HDI-Project/RDT.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://codecov.io/gh/HDI-Project/RDT"><img alt="Coverage Status" src="https://codecov.io/gh/HDI-Project/RDT/branch/master/graph/badge.svg" /></a>
+<a class="reference external image-reference" href="https://pepy.tech/project/rdt"><img alt="Downloads" src="https://pepy.tech/badge/rdt" /></a>
+<div class="section" id="rdt-reversible-data-transforms">
+<h1>RDT: Reversible Data Transforms<a class="headerlink" href="#rdt-reversible-data-transforms" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>License: MIT</p></li>
+<li><p>Documentation: <a class="reference external" href="https://HDI-Project.github.io/RDT">https://HDI-Project.github.io/RDT</a></p></li>
+<li><p>Homepage: <a class="reference external" href="https://github.com/HDI-Project/RDT">https://github.com/HDI-Project/RDT</a></p></li>
+</ul>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>RDT</strong> is a Python library used to transform data for data science libraries and preserve
+the transformations in order to revert them as needed.</p>
+</div>
+</div>
+<div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p><strong>RDT</strong> has been developed and tested on <a class="reference external" href="https://www.python.org/downloads">Python 3.5, 3.6 and 3.7</a></p>
+<p>Also, although it is not strictly required, the usage of a
+<a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> is highly recommended in order to avoid
+interfering with other software installed in the system where <strong>RDT</strong> is run.</p>
+<p>These are the minimum commands needed to create a virtualenv using python3.6 for <strong>RDT</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install virtualenv
+virtualenv -p <span class="k">$(</span>which python3.6<span class="k">)</span> rdt-venv
+</pre></div>
+</div>
+<p>Afterwards, you have to execute this command to have the virtualenv activated:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> rdt-venv/bin/activate
+</pre></div>
+</div>
+<p>Remember about executing it every time you start a new console to work on <strong>RDT</strong>!</p>
+</div>
+<div class="section" id="install-with-pip">
+<h2>Install with pip<a class="headerlink" href="#install-with-pip" title="Permalink to this headline">¶</a></h2>
+<p>After creating the virtualenv and activating it, we recommend using
+<a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a> in order to install <strong>RDT</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install rdt
+</pre></div>
+</div>
+<p>This will pull and install the latest stable release from <a class="reference external" href="https://pypi.org/">PyPi</a>.</p>
+</div>
+<div class="section" id="install-from-sources">
+<h2>Install from sources<a class="headerlink" href="#install-from-sources" title="Permalink to this headline">¶</a></h2>
+<p>Alternatively, with your virtualenv activated, you can clone the repository and install
+it from source by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> on the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/HDI-Project/RDT
+<span class="nb">cd</span> RDT
+git checkout stable
+make install
+</pre></div>
+</div>
+<p>For development, you can use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install-develop</span></code> instead in order to install all
+the required dependencies for testing and code linting.</p>
+</div>
+</div>
+<div class="section" id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<p>In this short series of tutorials we will guide you through a series of steps that will
+help you getting started using <strong>RDT</strong> to transform columns, tables and datasets.</p>
+<div class="section" id="transforming-a-column">
+<h2>Transforming a column<a class="headerlink" href="#transforming-a-column" title="Permalink to this headline">¶</a></h2>
+<p>In this first guide, you will learn how to use <strong>RDT</strong> in its simplest form, transforming
+a single column loaded as a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> object.</p>
+<div class="section" id="load-the-column-and-its-metadata">
+<h3>1. Load the column and its metadata<a class="headerlink" href="#load-the-column-and-its-metadata" title="Permalink to this headline">¶</a></h3>
+<p>In order to load a column and its metadata, you must call the <code class="docutils literal notranslate"><span class="pre">rdt.load_data</span></code> function passing
+it the path to the metadata json file, the name of the table from which to load the column,
+and the name of the column to load.</p>
+<p>You can find documentation about the metadata format in <a class="reference external" href="https://github.com/HDI-Project/MetaData.json">MetaData.json</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt</span> <span class="kn">import</span> <span class="n">load_data</span>
+
+<span class="n">metadata_path</span> <span class="o">=</span> <span class="s1">&#39;tests/data/airbnb/airbnb_meta.json&#39;</span>
+
+<span class="n">column_data</span><span class="p">,</span> <span class="n">column_metadata</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span>
+    <span class="n">metadata_path</span><span class="o">=</span><span class="n">metadata_path</span><span class="p">,</span>
+    <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span>
+    <span class="n">column_name</span><span class="o">=</span><span class="s1">&#39;date_account_created&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will be the variable <code class="docutils literal notranslate"><span class="pre">column_data</span></code>, which is a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the column data:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>  <span class="n">date_account_created</span>
+<span class="mi">0</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">1</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">2</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">3</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">4</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+</pre></div>
+</div>
+<p>And the <code class="docutils literal notranslate"><span class="pre">column_metadata</span></code>, which is a <code class="docutils literal notranslate"><span class="pre">dict</span></code> containing the information from the metadata json
+that corresponds to this column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;date_account_created&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;uniques&#39;</span><span class="p">:</span> <span class="mi">1634</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-the-transformer">
+<h3>2. Load the transformer<a class="headerlink" href="#load-the-transformer" title="Permalink to this headline">¶</a></h3>
+<p>In this case the column is a datetime, so we will use the <code class="docutils literal notranslate"><span class="pre">DTTransformer</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt.transformers</span> <span class="kn">import</span> <span class="n">DTTransformer</span>
+<span class="n">transformer</span> <span class="o">=</span> <span class="n">DTTransformer</span><span class="p">(</span><span class="n">column_metadata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-the-column-data">
+<h3>3. Transform the column data<a class="headerlink" href="#transform-the-column-data" title="Permalink to this headline">¶</a></h3>
+<p>In order to transform the data, we will call its <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method passing the
+<code class="docutils literal notranslate"><span class="pre">column</span></code> data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformed_data</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">column_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will be another <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the transformed data:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>   <span class="n">date_account_created</span>
+<span class="mi">0</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>
+<span class="mi">1</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>
+<span class="mi">2</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>
+<span class="mi">3</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>
+<span class="mi">4</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="revert-the-column-transformation">
+<h3>4. Revert the column transformation<a class="headerlink" href="#revert-the-column-transformation" title="Permalink to this headline">¶</a></h3>
+<p>In order to revert the previous transformation, the transformed data can be passed to
+the <code class="docutils literal notranslate"><span class="pre">reverse_transform</span></code> method of the transformer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reversed_data</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will be a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> containing the data from which the transformed data
+was generated with.</p>
+<p>In this case, of course, the obtained data should be identical to the original one:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>  <span class="n">date_account_created</span>
+<span class="mi">0</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">1</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">2</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">3</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+<span class="mi">4</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="transforming-a-table">
+<h2>Transforming a table<a class="headerlink" href="#transforming-a-table" title="Permalink to this headline">¶</a></h2>
+<p>Once we know how to transform a single column, we can try to go the next level and transform
+a table with multiple columns.</p>
+<div class="section" id="load-the-table-data-and-its-metadata">
+<h3>1. Load the table data and its metadata<a class="headerlink" href="#load-the-table-data-and-its-metadata" title="Permalink to this headline">¶</a></h3>
+<p>In order to load a complete table, we will use the same <code class="docutils literal notranslate"><span class="pre">rdt.load_data</span></code> function as before,
+but omit the <code class="docutils literal notranslate"><span class="pre">column_name</span></code> from the call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">table_data</span><span class="p">,</span> <span class="n">table_metadata</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span>
+    <span class="n">metadata_path</span><span class="o">=</span><span class="n">metadata_path</span><span class="p">,</span>
+    <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The output, like before will be compsed by the <code class="docutils literal notranslate"><span class="pre">table_data</span></code>, which in this case will contain
+all the columns from the table:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>           <span class="n">id</span> <span class="n">date_account_created</span>  <span class="n">timestamp_first_active</span>  <span class="p">...</span> <span class="n">signup_app</span> <span class="n">first_device_type</span>  <span class="n">first_browser</span>
+<span class="mi">0</span>  <span class="n">d1mm9tcy42</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>          <span class="mi">20140101000936</span>  <span class="p">...</span>        <span class="n">Web</span>   <span class="n">Windows</span> <span class="n">Desktop</span>         <span class="n">Chrome</span>
+<span class="mi">1</span>  <span class="n">yo8nz8bqcq</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>          <span class="mi">20140101001558</span>  <span class="p">...</span>        <span class="n">Web</span>       <span class="n">Mac</span> <span class="n">Desktop</span>        <span class="n">Firefox</span>
+<span class="mi">2</span>  <span class="mi">4</span><span class="n">grx6yxeby</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>          <span class="mi">20140101001639</span>  <span class="p">...</span>        <span class="n">Web</span>   <span class="n">Windows</span> <span class="n">Desktop</span>        <span class="n">Firefox</span>
+<span class="mi">3</span>  <span class="n">ncf87guaf0</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>          <span class="mi">20140101002146</span>  <span class="p">...</span>        <span class="n">Web</span>   <span class="n">Windows</span> <span class="n">Desktop</span>         <span class="n">Chrome</span>
+<span class="mi">4</span>  <span class="mi">4</span><span class="n">rvqpxoh3h</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>          <span class="mi">20140101002619</span>  <span class="p">...</span>        <span class="n">iOS</span>            <span class="n">iPhone</span>      <span class="o">-</span><span class="k">unknown</span><span class="o">-</span>
+</pre></div>
+</div>
+<p>And the <code class="docutils literal notranslate"><span class="pre">table_metadata</span></code>, which will also contain all the information available about the table:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;users_demo.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;use&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;regex&#39;</span><span class="p">:</span> <span class="s1">&#39;^.{10}$&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;uniques&#39;</span><span class="p">:</span> <span class="mi">213451</span>
+        <span class="p">},</span>
+        <span class="o">...</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;first_browser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;subtype&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;uniques&#39;</span><span class="p">:</span> <span class="mi">52</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;primary_key&#39;</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;number_of_rows&#39;</span><span class="p">:</span> <span class="mi">213451</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-the-hypertransformer">
+<h3>2. Load the HyperTransformer<a class="headerlink" href="#load-the-hypertransformer" title="Permalink to this headline">¶</a></h3>
+<p>In order to manuipulate a complete table we will need to import the <code class="docutils literal notranslate"><span class="pre">rdt.HyperTransformer</span></code> class
+and create an instance of it passing it the path to our metadata file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt</span> <span class="kn">import</span> <span class="n">HyperTransformer</span>
+<span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="n">metadata_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-the-table-data">
+<h3>3. Transform the table data<a class="headerlink" href="#transform-the-table-data" title="Permalink to this headline">¶</a></h3>
+<p>In order to transform the data, we will call the <code class="docutils literal notranslate"><span class="pre">fit_transform_table</span></code> method from our
+<code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> instance passing it the table data, the table metadata and the names of the
+transformers that we want to apply.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformed</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">fit_transform_table</span><span class="p">(</span>
+    <span class="n">table</span><span class="o">=</span><span class="n">table_data</span><span class="p">,</span>
+    <span class="n">table_meta</span><span class="o">=</span><span class="n">table_metadata</span><span class="p">,</span>
+    <span class="n">transformer_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DTTransformer&#39;</span><span class="p">,</span> <span class="s1">&#39;NumberTransformer&#39;</span><span class="p">,</span> <span class="s1">&#39;CatTransformer&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The output, again, will be the transformed data:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>         <span class="n">id</span>  <span class="n">date_account_created</span>  <span class="n">timestamp_first_active</span>  <span class="p">...</span>  <span class="n">signup_app</span>  <span class="n">first_device_type</span>  <span class="n">first_browser</span>
+<span class="mi">0</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">512195</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>            <span class="mi">1</span><span class="p">.</span><span class="mi">388535</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>  <span class="p">...</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">204759</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">417261</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">423842</span>
+<span class="mi">1</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">958701</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>            <span class="mi">1</span><span class="p">.</span><span class="mi">388535</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>  <span class="p">...</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">569893</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">115335</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">756304</span>
+<span class="mi">2</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">106468</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>            <span class="mi">1</span><span class="p">.</span><span class="mi">388535</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>  <span class="p">...</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">381164</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">571280</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">869942</span>
+<span class="mi">3</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">724346</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>            <span class="mi">1</span><span class="p">.</span><span class="mi">388536</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>  <span class="p">...</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">485542</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">668070</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">364122</span>
+<span class="mi">4</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">345691</span>          <span class="mi">1</span><span class="p">.</span><span class="mi">388534</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>            <span class="mi">1</span><span class="p">.</span><span class="mi">388536</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>  <span class="p">...</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">944064</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">847751</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">108216</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="revert-the-table-transformation">
+<h3>4. Revert the table transformation<a class="headerlink" href="#revert-the-table-transformation" title="Permalink to this headline">¶</a></h3>
+<p>In order to revert the transformation and recover the original data from the transformed one,
+we need to call <code class="docutils literal notranslate"><span class="pre">reverse_transform_table</span></code> of the <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> instance passing it the
+transformed data and the table metadata.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reversed_data</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">reverse_transform_table</span><span class="p">(</span>
+    <span class="n">table</span><span class="o">=</span><span class="n">transformed</span><span class="p">,</span>
+    <span class="n">table_meta</span><span class="o">=</span><span class="n">table_metadata</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The output will be the reversed data. Just like before, this should look exactly like the
+original data:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>           <span class="n">id</span> <span class="n">date_account_created</span> <span class="n">timestamp_first_active</span>  <span class="p">...</span> <span class="n">signup_app</span> <span class="n">first_device_type</span>  <span class="n">first_browser</span>
+<span class="mi">0</span>  <span class="n">d1mm9tcy42</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>         <span class="mi">20140101010936</span>  <span class="p">...</span>        <span class="n">Web</span>   <span class="n">Windows</span> <span class="n">Desktop</span>         <span class="n">Chrome</span>
+<span class="mi">1</span>  <span class="n">yo8nz8bqcq</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>         <span class="mi">20140101011558</span>  <span class="p">...</span>        <span class="n">Web</span>       <span class="n">Mac</span> <span class="n">Desktop</span>        <span class="n">Firefox</span>
+<span class="mi">2</span>  <span class="mi">4</span><span class="n">grx6yxeby</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>         <span class="mi">20140101011639</span>  <span class="p">...</span>        <span class="n">Web</span>   <span class="n">Windows</span> <span class="n">Desktop</span>        <span class="n">Firefox</span>
+<span class="mi">3</span>  <span class="n">ncf87guaf0</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>         <span class="mi">20140101012146</span>  <span class="p">...</span>        <span class="n">Web</span>   <span class="n">Windows</span> <span class="n">Desktop</span>         <span class="n">Chrome</span>
+<span class="mi">4</span>  <span class="mi">4</span><span class="n">rvqpxoh3h</span>           <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>         <span class="mi">20140101012619</span>  <span class="p">...</span>        <span class="n">iOS</span>            <span class="n">iPhone</span>      <span class="o">-</span><span class="k">unknown</span><span class="o">-</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">rdt</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rdt.html">rdt package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#types-of-contributions">Types of Contributions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#get-started">Get Started!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
 
@@ -230,7 +501,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="readme.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="readme.html" class="btn btn-neutral float-right" title="RDT: Reversible Data Transforms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -240,7 +511,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
+        &copy; Copyright 2019, MIT Data To AI Lab
 
     </p>
   </div>
@@ -257,26 +528,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

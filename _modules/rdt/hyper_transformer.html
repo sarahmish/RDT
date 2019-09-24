@@ -8,47 +8,54 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.hyper_transformer &mdash; RDT 0.1.1 documentation</title>
+  <title>rdt.hyper_transformer &mdash; RDT 0.1.3 documentation</title>
   
 
   
   
+    <link rel="shortcut icon" href="../../_static/dai-logo-white.ico"/>
+  
   
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
             <a href="../../index.html" class="icon icon-home"> RDT
           
 
+          
+            
+            <img src="../../_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,26 +80,51 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">RDT: Reversible Data Transforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#install-with-pip">Install with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#install-from-sources">Install from sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#quickstart">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#transforming-a-column">Transforming a column</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#load-the-transformer">2. Load the transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#transform-the-column-data">3. Transform the column data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#transforming-a-table">Transforming a table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#transform-the-table-data">3. Transform the table data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../installation.html#stable-release">Stable release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../installation.html#from-sources">From sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/rdt.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/rdt.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/rdt.transformers.html">rdt.transformers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/rdt.transformers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/rdt.transformers.html#module-rdt.transformers">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules.html">rdt</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../rdt.html">rdt package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../rdt.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../rdt.transformers.html">rdt.transformers package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../rdt.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rdt.html#module-rdt.hyper_transformer">rdt.hyper_transformer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rdt.html#module-rdt.rdt">rdt.rdt module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rdt.html#module-rdt">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/rdt.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/rdt.hyper_transformer.html">rdt.hyper_transformer module</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/rdt.html#module-rdt">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
@@ -111,8 +143,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../contributing.html#release-workflow">Release Workflow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id1">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../history.html#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../history.html#general-improvements">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id9">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id10">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#id11">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -162,6 +202,8 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../rdt.html">rdt</a> &raquo;</li>
+        
       <li>rdt.hyper_transformer</li>
     
     
@@ -180,6 +222,7 @@
   <h1>Source code for rdt.hyper_transformer</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -192,60 +235,118 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="HyperTransformer"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer">[docs]</a><span class="k">class</span> <span class="nc">HyperTransformer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; This class is responsible for formatting the input table in a way</span>
-<span class="sd">    that is machine learning friendly</span>
+<span class="n">DEPRECATION_MESSAGE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;Usage of the argument `missing` in the method `</span><span class="si">{}</span><span class="s1">` is soon to be deprecated &#39;</span>
+    <span class="s1">&#39;and should be used at class-level. It will stop working after release v0.2.0.&#39;</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="HyperTransformer"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer">[docs]</a><span class="k">class</span> <span class="nc">HyperTransformer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Multitable transformer.</span>
+
+<span class="sd">    The main propouse of the HyperTransformer class is to easily manage transformations</span>
+<span class="sd">    for a whole dataset.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        metadata (str or dict):</span>
+<span class="sd">            Path to the meta.json file or its parsed contents.</span>
+<span class="sd">        dir_name (str):</span>
+<span class="sd">            Path to the root directory of meta.json. Defaults to ``None``.</span>
+<span class="sd">        missing (bool):</span>
+<span class="sd">            Wheter or not to handle missing values before transforming data.</span>
+<span class="sd">            Defaults to ``True``.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError:</span>
+<span class="sd">            A ``ValueError`` is raised when the ``metadata`` is a ``dict`` and ``dir_name``</span>
+<span class="sd">            is ``None`` or when the instance of ``metadata`` is not a ``str`` or a ``dict``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Initialize HyperTransformer.&quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># key=(table_name, col_name) val=transformer</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">meta_file</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;meta_file&#39; argument is needed to use HyperTransformer&quot;</span><span class="p">)</span>
-
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">meta_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">meta</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-        <span class="n">dir_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">meta_file</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">table_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tables</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">dir_name</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">transformer_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transformers</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
-
-<div class="viewcode-block" id="HyperTransformer.get_tables"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.get_tables">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_tables</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Load the contents of meta_file and the corresponding data.</span>
+<div class="viewcode-block" id="HyperTransformer.get_class"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.get_class">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get class object of transformer from its class name.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            meta(dict): Metadata for the dataset.</span>
-<span class="sd">            base_dir(str): Root folder of the dataset files.</span>
+<span class="sd">            class_name (str):</span>
+<span class="sd">                Name of the transform.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            dict: Mapping str -&gt; tuple(pandas.DataFrame, dict)</span>
+<span class="sd">            BaseTransformer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">transformers</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_pii_fields</span><span class="p">(</span><span class="n">table_metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of fields marked as sensitive information.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table_metadata (dict):</span>
+<span class="sd">                Metadata corresponding to a table.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list[dict]:</span>
+<span class="sd">                List of metadata for each field marked as ``pii``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">field</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_metadata</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pii&#39;</span><span class="p">)]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_anonymize_table</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">table_data</span><span class="p">,</span> <span class="n">pii_fields</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Anonymize in ``table_data`` the fields in ``pii_fields``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table_data (pandas.DataFrame):</span>
+<span class="sd">                Original dataframe/table.</span>
+<span class="sd">            pii_fields (list[dict]):</span>
+<span class="sd">                Metadata for the fields to transform.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame:</span>
+<span class="sd">                Anonymized table.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">pii_field</span> <span class="ow">in</span> <span class="n">pii_fields</span><span class="p">:</span>
+            <span class="n">field_name</span> <span class="o">=</span> <span class="n">pii_field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+            <span class="n">transformer</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_class</span><span class="p">(</span><span class="n">TRANSFORMERS</span><span class="p">[</span><span class="s1">&#39;categorical&#39;</span><span class="p">])(</span><span class="n">pii_field</span><span class="p">)</span>
+            <span class="n">table_data</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">anonymize_column</span><span class="p">(</span><span class="n">table_data</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">table_data</span>
+
+    <span class="k">def</span> <span class="nf">_get_tables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load the contents of meta_file and the corresponding data.</span>
+
+<span class="sd">        If fields containing Personally Identifiable Information are detected in the metadata</span>
+<span class="sd">        they are anonymized before asign them into ``table_dict``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            base_dir (str):</span>
+<span class="sd">                Root folder of the dataset files.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict:</span>
+<span class="sd">                Mapping str -&gt; tuple(pandas.DataFrame, dict)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">table_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;use&#39;</span><span class="p">]:</span>
-                <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+                <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
                 <span class="n">data_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
+                <span class="n">pii_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pii_fields</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+                <span class="n">data_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_anonymize_table</span><span class="p">(</span><span class="n">data_table</span><span class="p">,</span> <span class="n">pii_fields</span><span class="p">)</span>
+
                 <span class="n">table_dict</span><span class="p">[</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data_table</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">table_dict</span></div>
+        <span class="k">return</span> <span class="n">table_dict</span>
 
-<div class="viewcode-block" id="HyperTransformer.get_transformers"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.get_transformers">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_transformers</span><span class="p">(</span><span class="n">meta</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_transformers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load the contents of meta_file and extract information about the transformers.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            meta(dict): Metadata for the dataset.</span>
-
 <span class="sd">        Returns:</span>
-<span class="sd">            dict: tuple(str, str) -&gt; Transformer.</span>
+<span class="sd">            dict:</span>
+<span class="sd">                tuple(str, str) -&gt; Transformer.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">transformer_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">]:</span>
             <span class="n">table_name</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 
             <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
@@ -254,28 +355,265 @@
                     <span class="n">col_name</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
                     <span class="n">transformer_dict</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">transformer_type</span>
 
-        <span class="k">return</span> <span class="n">transformer_dict</span></div>
+        <span class="k">return</span> <span class="n">transformer_dict</span>
 
-<div class="viewcode-block" id="HyperTransformer.get_class"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.get_class">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_class</span><span class="p">(</span><span class="n">class_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets class object of transformer from class name.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">transformers</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 
-<div class="viewcode-block" id="HyperTransformer.fit_transform"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transformer_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transformer_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        This function loops applies all the specified transformers to the</span>
-<span class="sd">        tables and return a dict of transformed tables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># key=(table_name, col_name) val=transformer</span>
 
-<span class="sd">        :param tables: mapping of table names to tuple of (tables to be</span>
-<span class="sd">        transformed, corresponding table meta). If not specified,</span>
-<span class="sd">        the tables will be retrieved using the meta_file.</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">dir_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="sd">        :param transformer_list: list of transformers to use. If not</span>
-<span class="sd">        specified, the transformers in the meta_file will be used.</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+            <span class="k">if</span> <span class="n">dir_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;dir_name is required when metadata is a dict.&#39;</span><span class="p">)</span>
 
-<span class="sd">        :returns: dict mapping table name to transformed tables</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Incorrect type for metadata: It can only be either dict or str.&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_tables</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformer_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_transformers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+
+    <span class="k">def</span> <span class="nf">_fit_transform_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">transformer_name</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform a column from ``table`` using transformer and given parameters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table (pandas.DataFrame):</span>
+<span class="sd">                Dataframe containing column to transform.</span>
+<span class="sd">            metadata (dict):</span>
+<span class="sd">                Metadata for given column.</span>
+<span class="sd">            transformer_name (str):</span>
+<span class="sd">                Name of transformer to use on column.</span>
+<span class="sd">            table_name (str):</span>
+<span class="sd">                Name of table in original dataset.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame:</span>
+<span class="sd">                Dataframe containing the transformed column. If ``self.missing=True``,</span>
+<span class="sd">                it will contain a second column containing 0 and 1 marking if that</span>
+<span class="sd">                value was originally null or not.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">column_name</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="ow">and</span> <span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">null_transformer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">NullTransformer</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+            <span class="n">clean_column</span> <span class="o">=</span> <span class="n">null_transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">])</span>
+            <span class="n">null_name</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">column_name</span>
+            <span class="n">columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">null_name</span><span class="p">)</span>
+            <span class="n">content</span><span class="p">[</span><span class="n">null_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_column</span><span class="p">[</span><span class="n">null_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_column</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+
+        <span class="n">transformer_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class</span><span class="p">(</span><span class="n">transformer_name</span><span class="p">)</span>
+        <span class="n">transformer</span> <span class="o">=</span> <span class="n">transformer_class</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">transformer</span>
+        <span class="n">content</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">table</span><span class="p">)[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">+</span> <span class="n">columns</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_reverse_transform_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reverses the transformation on a column from ``table`` using the given parameters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table (pandas.DataFrame):</span>
+<span class="sd">                Dataframe containing column to transform.</span>
+<span class="sd">            metadata (dict):</span>
+<span class="sd">                Metadata for given column.</span>
+<span class="sd">            table_name (str):</span>
+<span class="sd">                Name of the table in the original dataset.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame:</span>
+<span class="sd">                Dataframe containing the transformed column. If ``self.missing=True``,</span>
+<span class="sd">                it will contain a second column containing 0 and 1 marking if that</span>
+<span class="sd">                value was originally null or not.</span>
+<span class="sd">                It will return ``None`` in the case the column is not in the table.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">column_name</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">null_name</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">column_name</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">column_name</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">table</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">transformer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)]</span>
+        <span class="n">content</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="ow">and</span> <span class="n">null_name</span> <span class="ow">in</span> <span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">]:</span>
+            <span class="n">content</span><span class="p">[</span><span class="n">null_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">null_name</span><span class="p">)</span>
+            <span class="n">null_transformer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">NullTransformer</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+            <span class="n">content</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">null_transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">content</span>
+
+<div class="viewcode-block" id="HyperTransformer.fit_transform_table"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.fit_transform_table">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">transformer_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">transformer_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create, apply and store the specified transformers for ``table``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table (pandas.DataFrame):</span>
+<span class="sd">                Contents of the table to be transformed.</span>
+<span class="sd">            table_meta (dict):</span>
+<span class="sd">                Metadata for the given table.</span>
+<span class="sd">            transformer_dict (dict):</span>
+<span class="sd">                Mapping ``tuple(str, str)`` -&gt; ``str`` where the tuple in the keys represent</span>
+<span class="sd">                the ``(table_name, column_name)`` and the value the name</span>
+<span class="sd">                of the assigned transformer. Defaults to ``None``.</span>
+<span class="sd">            transformer_list (list):</span>
+<span class="sd">                List of transformers to use. Overrides the transformers in the ``meta_file``.</span>
+<span class="sd">                Defaults to ``None``.</span>
+<span class="sd">            missing (bool):</span>
+<span class="sd">                Wheter or not use ``NullTransformer`` to handle missing values.</span>
+<span class="sd">                Defaults to ``None``</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame:</span>
+<span class="sd">                Transformed table.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">DEPRECATION_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;fit_transform_table&#39;</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
+            <span class="n">col_name</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">transformer_list</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">transformer_name</span> <span class="ow">in</span> <span class="n">transformer_list</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class</span><span class="p">(</span><span class="n">transformer_name</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
+                        <span class="n">transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_transform_column</span><span class="p">(</span>
+                            <span class="n">table</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">transformer_name</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+
+                        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">result</span><span class="p">,</span> <span class="n">transformed</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span> <span class="ow">in</span> <span class="n">transformer_dict</span><span class="p">:</span>
+                <span class="n">transformer_name</span> <span class="o">=</span> <span class="n">TRANSFORMERS</span><span class="p">[</span><span class="n">transformer_dict</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]]</span>
+                <span class="n">transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_transform_column</span><span class="p">(</span>
+                    <span class="n">table</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">transformer_name</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+
+                <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">result</span><span class="p">,</span> <span class="n">transformed</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="HyperTransformer.transform_table"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.transform_table">[docs]</a>    <span class="k">def</span> <span class="nf">transform_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply the stored transformers to ``table``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table (pandas.DataFrame):</span>
+<span class="sd">                Contents of the table to be transformed.</span>
+<span class="sd">            table_meta (dict):</span>
+<span class="sd">                Metadata for the given table.</span>
+<span class="sd">            missing (bool):</span>
+<span class="sd">                Wheter or not use ``NullTransformer`` to handle missing values.</span>
+<span class="sd">                Defaults to ``None``</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame:</span>
+<span class="sd">                Transformed table.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">DEPRECATION_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;transform_table&#39;</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+        <span class="n">content</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
+            <span class="n">column_name</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">missing</span> <span class="ow">and</span> <span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">null_transformer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">NullTransformer</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+                <span class="n">clean_column</span> <span class="o">=</span> <span class="n">null_transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">])</span>
+                <span class="n">null_name</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">column_name</span>
+                <span class="n">columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">null_name</span><span class="p">)</span>
+                <span class="n">content</span><span class="p">[</span><span class="n">null_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_column</span><span class="p">[</span><span class="n">null_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">column</span> <span class="o">=</span> <span class="n">clean_column</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">column</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+
+            <span class="n">transformer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)]</span>
+            <span class="n">content</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HyperTransformer.reverse_transform_table"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.reverse_transform_table">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform a ``table`` back to its original format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            table (pandas.DataFrame):</span>
+<span class="sd">                Contents of the table to be transformed.</span>
+<span class="sd">            table_meta (dict):</span>
+<span class="sd">                Metadata for the given table.</span>
+<span class="sd">            missing (bool):</span>
+<span class="sd">                Wheter or not use ``NullTransformer`` to handle missing values.</span>
+<span class="sd">                Defaults to ``None``</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame:</span>
+<span class="sd">                Table in original format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="n">DEPRECATION_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;reverse_transform_table&#39;</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">table</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
+            <span class="n">new_column</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reverse_transform_column</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">new_column</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="HyperTransformer.fit_transform"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transformer_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">transformer_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create, apply and store the specified transformers for the given tables.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tables (dict):</span>
+<span class="sd">                Mapping of table names to ``tuple`` where each tuple is on the form</span>
+<span class="sd">                ``(pandas.DataFrame, dict)``. The ``DataFrame`` contains the table data</span>
+<span class="sd">                and the ``dict`` the corresponding meta information.</span>
+<span class="sd">                If not specified, the tables will be retrieved using the meta_file.</span>
+<span class="sd">                Defaults to ``None``.</span>
+<span class="sd">            transformer_dict (dict):</span>
+<span class="sd">                Mapping ``tuple(str, str)`` -&gt; ``str`` where the tuple is</span>
+<span class="sd">                ``(table_name, column_name)``. Defaults to ``None``.</span>
+<span class="sd">            transformer_list (list):</span>
+<span class="sd">                List of transformers to use. Overrides the transformers in the ``meta_file``.</span>
+<span class="sd">                Defaults to ``None``.</span>
+<span class="sd">            missing (bool):</span>
+<span class="sd">                Wheter or not use ``NullTransformer`` to handle missing values.</span>
+<span class="sd">                Defaults to ``None``.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict:</span>
+<span class="sd">                Map from ``str`` (table_names) to ``pandas.DataFrame`` (transformed data).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">DEPRECATION_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;fit_transform&#39;</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
         <span class="n">transformed</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">if</span> <span class="n">tables</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -287,22 +625,36 @@
         <span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
             <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span>
             <span class="n">transformed_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_transform_table</span><span class="p">(</span>
-                <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">transformer_dict</span><span class="p">,</span> <span class="n">transformer_list</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
+                <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">transformer_dict</span><span class="p">,</span> <span class="n">transformer_list</span><span class="p">)</span>
 
             <span class="n">transformed</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">transformed_table</span>
 
         <span class="k">return</span> <span class="n">transformed</span></div>
 
-<div class="viewcode-block" id="HyperTransformer.transform"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="n">table_metas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        This function applies all the saved transformers to the</span>
-<span class="sd">        tables and returns a dict of transformed tables</span>
+<div class="viewcode-block" id="HyperTransformer.transform"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="n">table_metas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply all the saved transformers to ``tables``.</span>
 
-<span class="sd">        :param tables: mapping of table names to tables to be transformed.</span>
-<span class="sd">        If not specified, the tables will be retrieved using the meta_file.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            tables(dict):</span>
+<span class="sd">                mapping of table names to ``tuple`` where each tuple is on the form</span>
+<span class="sd">                (``pandas.DataFrame``, ``dict``). The ``DataFrame`` contains the table data</span>
+<span class="sd">                and the ``dict`` the corresponding meta information.</span>
+<span class="sd">                If not specified, the tables will be retrieved using the meta_file.</span>
+<span class="sd">            table_metas(dict):</span>
+<span class="sd">                Full metadata file for the dataset. Defaults to ``None``.</span>
+<span class="sd">            missing(bool):</span>
+<span class="sd">                Wheter or not use ``NullTransformer`` to handle missing values.</span>
+<span class="sd">                Defaults to ``None``.</span>
 
-<span class="sd">        :returns: dict mapping table name to transformed tables</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict:</span>
+<span class="sd">                Map from ``str`` (table_names) to ``pandas.DataFrame`` (transformed data).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">DEPRECATION_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
         <span class="n">transformed</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
@@ -313,18 +665,34 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">table_meta</span> <span class="o">=</span> <span class="n">table_metas</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span>
 
-            <span class="n">transformed</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
+            <span class="n">transformed</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">transformed</span></div>
 
-<div class="viewcode-block" id="HyperTransformer.reverse_transform"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="n">table_metas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Loops through the list of reverse transform functions and puts data</span>
-<span class="sd">        back into original format.</span>
+<div class="viewcode-block" id="HyperTransformer.reverse_transform"><a class="viewcode-back" href="../../api/rdt.hyper_transformer.html#rdt.HyperTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="n">table_metas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform data back to its original format.</span>
 
-<span class="sd">        :param tables: mapping of table names to tables to be transformed.</span>
-<span class="sd">        If not specified, the tables will be retrieved using the meta_file.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            tables(dict):</span>
+<span class="sd">                mapping of table names to ``tuple`` where each tuple is on the form</span>
+<span class="sd">                (``pandas.DataFrame``, ``dict``). The ``DataFrame`` contains the transformed</span>
+<span class="sd">                data and the ``dict`` the corresponding meta information.</span>
+<span class="sd">                If not specified, the tables will be retrieved using the meta_file.</span>
+<span class="sd">            table_metas(dict):</span>
+<span class="sd">                Full metadata file for the dataset. Defaults to ``None``.</span>
+<span class="sd">            missing(bool):</span>
+<span class="sd">                Wheter or not use ``NullTransformer`` to handle missing values.</span>
+<span class="sd">                Defaults to ``None``</span>
 
-<span class="sd">        :returns: dict mapping table name to transformed tables&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict:</span>
+<span class="sd">                Map from ``str`` (table_names) to ``pandas.DataFrame`` (transformed data).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">DEPRECATION_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;reverse_transform&#39;</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
         <span class="n">reverse</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
@@ -334,86 +702,9 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">table_meta</span> <span class="o">=</span> <span class="n">table_metas</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span>
 
-            <span class="n">reverse</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse_transform_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">reverse</span></div>
+            <span class="n">reverse</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse_transform_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">)</span>
 
-<div class="viewcode-block" id="HyperTransformer.fit_transform_table"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.fit_transform_table">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">transformer_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                            <span class="n">transformer_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Returns the processed table after going through each transform</span>
-<span class="sd">        and adds fitted transformers to the hyper class</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[])</span>
-        <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
-            <span class="n">col_name</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-            <span class="n">col</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">transformer_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">transformer_name</span> <span class="ow">in</span> <span class="n">transformer_list</span><span class="p">:</span>
-                    <span class="n">transformer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class</span><span class="p">(</span><span class="n">transformer_name</span><span class="p">)</span>
-                    <span class="n">t</span> <span class="o">=</span> <span class="n">transformer</span><span class="p">()</span>
-                    <span class="k">if</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
-                        <span class="n">new_col</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(),</span> <span class="n">field</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
-                        <span class="c1"># handle missing</span>
-                        <span class="c1"># if missing:</span>
-                        <span class="c1">#     null_t = null_class()</span>
-                        <span class="c1">#     new_col = null_t.fit_transform(new_col, field)</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">t</span>
-                        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">out</span><span class="p">,</span> <span class="n">new_col</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># use transformer dict</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span> <span class="ow">in</span> <span class="n">transformer_dict</span><span class="p">:</span>
-                    <span class="n">transformer_name</span> <span class="o">=</span> <span class="n">transformer_dict</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]</span>
-                    <span class="n">transformer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class</span><span class="p">(</span><span class="n">TRANSFORMERS</span><span class="p">[</span><span class="n">transformer_name</span><span class="p">])</span>
-                    <span class="n">t</span> <span class="o">=</span> <span class="n">transformer</span><span class="p">()</span>
-                    <span class="n">new_col</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(),</span> <span class="n">field</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">t</span>
-                    <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">out</span><span class="p">,</span> <span class="n">new_col</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">out</span></div>
-
-<div class="viewcode-block" id="HyperTransformer.transform_table"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.transform_table">[docs]</a>    <span class="k">def</span> <span class="nf">transform_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Does the required transformations to the table &quot;&quot;&quot;</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[])</span>
-        <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-
-        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
-            <span class="n">col_name</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-            <span class="n">col</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span>
-            <span class="n">transformer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]</span>
-            <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">out</span><span class="p">,</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(),</span> <span class="n">field</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">out</span></div>
-
-<div class="viewcode-block" id="HyperTransformer.reverse_transform_table"><a class="viewcode-back" href="../../rdt.html#rdt.hyper_transformer.HyperTransformer.reverse_transform_table">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">table_meta</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Converts data back into original format by looping</span>
-<span class="sd">        over all transformers and doing the reverse</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># to check for missing value class</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[])</span>
-        <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-
-        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">table_meta</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]:</span>
-            <span class="n">col_name</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-
-            <span class="c1"># only add transformed columns</span>
-            <span class="k">if</span> <span class="n">col_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
-                <span class="k">continue</span>
-
-            <span class="n">col</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">:</span>
-                <span class="n">transformer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span><span class="p">[(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)]</span>
-
-                <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
-                    <span class="n">missing_col</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">col_name</span><span class="p">]</span>
-                    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">col</span><span class="p">,</span> <span class="n">missing_col</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-                    <span class="n">out_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">,</span> <span class="n">transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">missing</span><span class="p">)]</span>
-
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">new_col</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(),</span> <span class="n">field</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
-                    <span class="n">out_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">,</span> <span class="n">new_col</span><span class="p">]</span>
-
-                <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">out_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">out</span></div></div>
+        <span class="k">return</span> <span class="n">reverse</span></div></div>
 </pre></div>
 
            </div>
@@ -426,7 +717,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, MIT Data To AI Lab
+        &copy; Copyright 2019, MIT Data To AI Lab
 
     </p>
   </div>
@@ -443,26 +734,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
