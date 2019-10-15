@@ -286,7 +286,7 @@
 
     <span class="k">def</span> <span class="nf">_anonymize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Anonymize data and save in-memory the anonymized label encoding.&quot;&quot;&quot;</span>
-        <span class="n">faker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_faker</span><span class="p">()</span>
+        <span class="n">faker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_faker</span><span class="p">()</span>
         <span class="n">uniques</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
         <span class="n">fake_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">faker</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uniques</span><span class="p">))]</span>
 
