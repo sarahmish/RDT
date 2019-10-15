@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt package &mdash; RDT 0.1.3 documentation</title>
+  <title>rdt package &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rdt.transformers package" href="rdt.transformers.html" />
-    <link rel="prev" title="RDT: Reversible Data Transforms" href="../readme.html" /> 
+    <link rel="prev" title="Overview" href="../readme.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,33 +83,33 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">RDT: Reversible Data Transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#install-with-pip">Install with pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-sources">Install from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-for-development">Install for Development</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#transforming-a-column">Transforming a column</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-demo-data">1. Load the demo data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-transformer">2. Load the transformer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-column-data">3. Transform the column data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#fit-the-transformer">3. Fit the Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-data">4. Transform the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-column-transformation">5. Revert the column transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#transforming-a-table">Transforming a table</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-hypertransformer">1. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#fit-the-hypertransformer">2. Fit the HyperTransformer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-table-data">3. Transform the table data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul class="current">
@@ -142,7 +142,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
@@ -232,11 +235,11 @@
 <li class="toctree-l1"><a class="reference internal" href="rdt.transformers.html">rdt.transformers package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rdt.transformers.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rdt.transformers.base.html">rdt.transformers.base module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.transformers.category.html">rdt.transformers.category module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.transformers.boolean.html">rdt.transformers.boolean module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.transformers.categorical.html">rdt.transformers.categorical module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rdt.transformers.datetime.html">rdt.transformers.datetime module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rdt.transformers.null.html">rdt.transformers.null module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.transformers.number.html">rdt.transformers.number module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rdt.transformers.positive_number.html">rdt.transformers.positive_number module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rdt.transformers.numerical.html">rdt.transformers.numerical module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rdt.transformers.html#module-rdt.transformers">Module contents</a></li>
@@ -263,42 +266,30 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer" title="rdt.HyperTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HyperTransformer</span></code></a>(metadata[, dir_name, missing])</p></td>
-<td><p>Multitable transformer.</p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Functions</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.load_data" title="rdt.load_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_data</span></code></a>(metadata_path, table_name[, …])</p></td>
-<td><p>Load the metadata and data from the indicated table.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer" title="rdt.HyperTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HyperTransformer</span></code></a>([transformers, copy, …])</p></td>
+<td><p>HyperTransformer class.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="class">
 <dt id="rdt.HyperTransformer">
-<em class="property">class </em><code class="sig-prename descclassname">rdt.</code><code class="sig-name descname">HyperTransformer</code><span class="sig-paren">(</span><em class="sig-param">metadata</em>, <em class="sig-param">dir_name=None</em>, <em class="sig-param">missing=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rdt.</code><code class="sig-name descname">HyperTransformer</code><span class="sig-paren">(</span><em class="sig-param">transformers=None</em>, <em class="sig-param">copy=True</em>, <em class="sig-param">anonymize=None</em>, <em class="sig-param">dtypes=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Multitable transformer.</p>
-<p>The main propouse of the HyperTransformer class is to easily manage transformations
-for a whole dataset.</p>
+<p>HyperTransformer class.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> class contains a collection of <code class="docutils literal notranslate"><span class="pre">transformers</span></code> that can be
+used to transform and reverse transform one or more columns at once.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metadata</strong> (<em>str</em><em> or </em><em>dict</em>) – Path to the meta.json file or its parsed contents.</p></li>
-<li><p><strong>dir_name</strong> (<em>str</em>) – Path to the root directory of meta.json. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not to handle missing values before transforming data.
-Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>transformers</strong> (<em>dict</em><em> or </em><em>None</em>) – dict associating column names with transformers, which can be either passed
+directly as an instance or as a dict specification. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a simple
+<code class="docutils literal notranslate"><span class="pre">transformers</span></code> dict is built automatically from the data.</p></li>
+<li><p><strong>copy</strong> (<em>bool</em>) – Whether to make a copy of the input data or not. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>anonymize</strong> (<em>dict</em><em> or </em><em>None</em>) – Dictionary specifying the names and <code class="docutils literal notranslate"><span class="pre">faker</span></code> categories of the categorical
+columns that need to be anonymized. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>dtypes</strong> (<em>list</em><em> or </em><em>None</em>) – List of column data types to use when building the <code class="docutils literal notranslate"><span class="pre">transformers</span></code> dict
+automatically. If not passed, the <code class="docutils literal notranslate"><span class="pre">DataFrame.dtypes</span></code> are used.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – A <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised when the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is a <code class="docutils literal notranslate"><span class="pre">dict</span></code> and <code class="docutils literal notranslate"><span class="pre">dir_name</span></code>
-    is <code class="docutils literal notranslate"><span class="pre">None</span></code> or when the instance of <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is not a <code class="docutils literal notranslate"><span class="pre">str</span></code> or a <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
 </dd>
 </dl>
 <p><strong>Methods</strong></p>
@@ -308,78 +299,64 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">True</s
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer.fit_transform" title="rdt.HyperTransformer.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>([tables, transformer_dict, …])</p></td>
-<td><p>Create, apply and store the specified transformers for the given tables.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer.fit" title="rdt.HyperTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<td><p>Fit the transformers to the data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.HyperTransformer.fit_transform_table" title="rdt.HyperTransformer.fit_transform_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform_table</span></code></a>(table, table_meta[, …])</p></td>
-<td><p>Create, apply and store the specified transformers for <code class="docutils literal notranslate"><span class="pre">table</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.HyperTransformer.fit_transform" title="rdt.HyperTransformer.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(data)</p></td>
+<td><p>Fit the transformers to the data and then transform it.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer.get_class" title="rdt.HyperTransformer.get_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_class</span></code></a>(class_name)</p></td>
-<td><p>Get class object of transformer from its class name.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer.reverse_transform" title="rdt.HyperTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
+<td><p>Revert the transformations back to the original values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.HyperTransformer.reverse_transform" title="rdt.HyperTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(tables[, table_metas, missing])</p></td>
-<td><p>Transform data back to its original format.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer.reverse_transform_table" title="rdt.HyperTransformer.reverse_transform_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform_table</span></code></a>(table, table_meta[, …])</p></td>
-<td><p>Transform a <code class="docutils literal notranslate"><span class="pre">table</span></code> back to its original format.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.HyperTransformer.transform" title="rdt.HyperTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(tables[, table_metas, missing])</p></td>
-<td><p>Apply all the saved transformers to <code class="docutils literal notranslate"><span class="pre">tables</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.HyperTransformer.transform_table" title="rdt.HyperTransformer.transform_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform_table</span></code></a>(table, table_meta[, missing])</p></td>
-<td><p>Apply the stored transformers to <code class="docutils literal notranslate"><span class="pre">table</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.HyperTransformer.transform" title="rdt.HyperTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform the data.</p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Example</p>
+<p>Create a simple <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> instance that will decide which transformers
+to use based on the fit data <code class="docutils literal notranslate"><span class="pre">dtypes</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> passing a list of dtypes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">(</span><span class="n">dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;bool&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> passing a <code class="docutils literal notranslate"><span class="pre">transformers</span></code> dict.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">NumericalTransformer</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;NumericalTransformer&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s1">&#39;kwargs&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="nb">int</span>
+<span class="gp">... </span>        <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">(</span><span class="n">transformers</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="method">
-<dt id="rdt.HyperTransformer.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">tables=None</em>, <em class="sig-param">transformer_dict=None</em>, <em class="sig-param">transformer_list=None</em>, <em class="sig-param">missing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create, apply and store the specified transformers for the given tables.</p>
+<dt id="rdt.HyperTransformer.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformers to the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tables</strong> (<em>dict</em>) – Mapping of table names to <code class="docutils literal notranslate"><span class="pre">tuple</span></code> where each tuple is on the form
-<code class="docutils literal notranslate"><span class="pre">(pandas.DataFrame,</span> <span class="pre">dict)</span></code>. The <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contains the table data
-and the <code class="docutils literal notranslate"><span class="pre">dict</span></code> the corresponding meta information.
-If not specified, the tables will be retrieved using the meta_file.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>transformer_dict</strong> (<em>dict</em>) – Mapping <code class="docutils literal notranslate"><span class="pre">tuple(str,</span> <span class="pre">str)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">str</span></code> where the tuple is
-<code class="docutils literal notranslate"><span class="pre">(table_name,</span> <span class="pre">column_name)</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>transformer_list</strong> (<em>list</em>) – List of transformers to use. Overrides the transformers in the <code class="docutils literal notranslate"><span class="pre">meta_file</span></code>.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not use <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code> to handle missing values.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Map from <code class="docutils literal notranslate"><span class="pre">str</span></code> (table_names) to <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> (transformed data).</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Data to fit the transformers to.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="rdt.HyperTransformer.fit_transform_table">
-<code class="sig-name descname">fit_transform_table</code><span class="sig-paren">(</span><em class="sig-param">table</em>, <em class="sig-param">table_meta</em>, <em class="sig-param">transformer_dict=None</em>, <em class="sig-param">transformer_list=None</em>, <em class="sig-param">missing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.fit_transform_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.fit_transform_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create, apply and store the specified transformers for <code class="docutils literal notranslate"><span class="pre">table</span></code>.</p>
+<dt id="rdt.HyperTransformer.fit_transform">
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformers to the data and then transform it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> (<em>pandas.DataFrame</em>) – Contents of the table to be transformed.</p></li>
-<li><p><strong>table_meta</strong> (<em>dict</em>) – Metadata for the given table.</p></li>
-<li><p><strong>transformer_dict</strong> (<em>dict</em>) – Mapping <code class="docutils literal notranslate"><span class="pre">tuple(str,</span> <span class="pre">str)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">str</span></code> where the tuple in the keys represent
-the <code class="docutils literal notranslate"><span class="pre">(table_name,</span> <span class="pre">column_name)</span></code> and the value the name
-of the assigned transformer. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>transformer_list</strong> (<em>list</em>) – List of transformers to use. Overrides the transformers in the <code class="docutils literal notranslate"><span class="pre">meta_file</span></code>.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not use <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code> to handle missing values.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Transformed table.</p>
+<dd class="field-even"><p>Transformed data.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pandas.DataFrame</p>
@@ -388,59 +365,15 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 </dd></dl>
 
 <dl class="method">
-<dt id="rdt.HyperTransformer.get_class">
-<em class="property">static </em><code class="sig-name descname">get_class</code><span class="sig-paren">(</span><em class="sig-param">class_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.get_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.get_class" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get class object of transformer from its class name.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>class_name</strong> (<em>str</em>) – Name of the transform.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>BaseTransformer</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="rdt.HyperTransformer.reverse_transform">
-<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">tables</em>, <em class="sig-param">table_metas=None</em>, <em class="sig-param">missing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform data back to its original format.</p>
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revert the transformations back to the original values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tables</strong> (<em>dict</em>) – mapping of table names to <code class="docutils literal notranslate"><span class="pre">tuple</span></code> where each tuple is on the form
-(<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>). The <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contains the transformed
-data and the <code class="docutils literal notranslate"><span class="pre">dict</span></code> the corresponding meta information.
-If not specified, the tables will be retrieved using the meta_file.</p></li>
-<li><p><strong>table_metas</strong> (<em>dict</em>) – Full metadata file for the dataset. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not use <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code> to handle missing values.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Data to revert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Map from <code class="docutils literal notranslate"><span class="pre">str</span></code> (table_names) to <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> (transformed data).</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="rdt.HyperTransformer.reverse_transform_table">
-<code class="sig-name descname">reverse_transform_table</code><span class="sig-paren">(</span><em class="sig-param">table</em>, <em class="sig-param">table_meta</em>, <em class="sig-param">missing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.reverse_transform_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.reverse_transform_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform a <code class="docutils literal notranslate"><span class="pre">table</span></code> back to its original format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> (<em>pandas.DataFrame</em>) – Contents of the table to be transformed.</p></li>
-<li><p><strong>table_meta</strong> (<em>dict</em>) – Metadata for the given table.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not use <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code> to handle missing values.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Table in original format.</p>
+<dd class="field-even"><p>reversed data.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pandas.DataFrame</p>
@@ -450,44 +383,15 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 
 <dl class="method">
 <dt id="rdt.HyperTransformer.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">tables</em>, <em class="sig-param">table_metas=None</em>, <em class="sig-param">missing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply all the saved transformers to <code class="docutils literal notranslate"><span class="pre">tables</span></code>.</p>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the data.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">self.copy</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> make a copy of the input data to avoid modifying it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tables</strong> (<em>dict</em>) – mapping of table names to <code class="docutils literal notranslate"><span class="pre">tuple</span></code> where each tuple is on the form
-(<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>). The <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contains the table data
-and the <code class="docutils literal notranslate"><span class="pre">dict</span></code> the corresponding meta information.
-If not specified, the tables will be retrieved using the meta_file.</p></li>
-<li><p><strong>table_metas</strong> (<em>dict</em>) – Full metadata file for the dataset. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not use <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code> to handle missing values.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Map from <code class="docutils literal notranslate"><span class="pre">str</span></code> (table_names) to <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> (transformed data).</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="rdt.HyperTransformer.transform_table">
-<code class="sig-name descname">transform_table</code><span class="sig-paren">(</span><em class="sig-param">table</em>, <em class="sig-param">table_meta</em>, <em class="sig-param">missing=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/hyper_transformer.html#HyperTransformer.transform_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.HyperTransformer.transform_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the stored transformers to <code class="docutils literal notranslate"><span class="pre">table</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> (<em>pandas.DataFrame</em>) – Contents of the table to be transformed.</p></li>
-<li><p><strong>table_meta</strong> (<em>dict</em>) – Metadata for the given table.</p></li>
-<li><p><strong>missing</strong> (<em>bool</em>) – Wheter or not use <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code> to handle missing values.
-Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Transformed table.</p>
+<dd class="field-even"><p>Transformed data.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pandas.DataFrame</p>
@@ -495,33 +399,6 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="function">
-<dt id="rdt.load_data">
-<code class="sig-prename descclassname">rdt.</code><code class="sig-name descname">load_data</code><span class="sig-paren">(</span><em class="sig-param">metadata_path</em>, <em class="sig-param">table_name</em>, <em class="sig-param">column_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt.html#load_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.load_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load the metadata and data from the indicated table.</p>
-<p>If a column name is also given, restrict the data and metadata results
-to the indicated column.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>metadata_path</strong> (<em>str</em>) – Path to the metadata file.</p></li>
-<li><p><strong>table_name</strong> (<em>str</em>) – Name of the table.</p></li>
-<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column. Optional.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>pandas.DataFrame, dict</dt><dd><ul class="simple">
-<li><p>Table or column loaded as a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p></li>
-<li><p>The table or column metadata.</p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
 </dd></dl>
 
 </div>
@@ -538,7 +415,7 @@ to the indicated column.</p>
         <a href="rdt.transformers.html" class="btn btn-neutral float-right" title="rdt.transformers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../readme.html" class="btn btn-neutral float-left" title="RDT: Reversible Data Transforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../readme.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

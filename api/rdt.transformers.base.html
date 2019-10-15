@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.base module &mdash; RDT 0.1.3 documentation</title>
+  <title>rdt.transformers.base module &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rdt.transformers.category module" href="rdt.transformers.category.html" />
+    <link rel="next" title="rdt.transformers.boolean module" href="rdt.transformers.boolean.html" />
     <link rel="prev" title="rdt.transformers package" href="rdt.transformers.html" /> 
 </head>
 
@@ -83,33 +83,33 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">RDT: Reversible Data Transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#install-with-pip">Install with pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-sources">Install from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-for-development">Install for Development</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#transforming-a-column">Transforming a column</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-demo-data">1. Load the demo data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-transformer">2. Load the transformer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-column-data">3. Transform the column data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#fit-the-transformer">3. Fit the Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-data">4. Transform the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-column-transformation">5. Revert the column transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#transforming-a-table">Transforming a table</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-hypertransformer">1. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#fit-the-hypertransformer">2. Fit the HyperTransformer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-table-data">3. Transform the table data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul class="current">
@@ -142,7 +142,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
@@ -236,16 +239,19 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTransformer</span></code></a>(column_metadata)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTransformer</span></code></a></p></td>
 <td><p>Base class for all transformers.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="class">
 <dt id="rdt.transformers.base.BaseTransformer">
-<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.base.</code><code class="sig-name descname">BaseTransformer</code><span class="sig-paren">(</span><em class="sig-param">column_metadata</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.base.</code><code class="sig-name descname">BaseTransformer</code><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for all transformers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">BaseTransformer</span></code> class contains methods that must be implemented
+in order to create a new transformer. The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method is optional,
+and <code class="docutils literal notranslate"><span class="pre">fit_transform</span></code> method is already implemented.</p>
 <p><strong>Methods</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -253,94 +259,81 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.check_data_type" title="rdt.transformers.base.BaseTransformer.check_data_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_data_type</span></code></a>()</p></td>
-<td><p>Check the type of the transformer and column match.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.fit" title="rdt.transformers.base.BaseTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<td><p>Fit the transformer to the data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.fit" title="rdt.transformers.base.BaseTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(col)</p></td>
-<td><p>Prepare the transformer to convert data.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.fit_transform" title="rdt.transformers.base.BaseTransformer.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(data)</p></td>
+<td><p>Fit the transformer to the data and then transform it.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.fit_transform" title="rdt.transformers.base.BaseTransformer.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a>(col)</p></td>
-<td><p>Prepare the transformer to convert data and return the processed table.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.reverse_transform" title="rdt.transformers.base.BaseTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
+<td><p>Revert the transformations to the original values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.reverse_transform" title="rdt.transformers.base.BaseTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(col)</p></td>
-<td><p>Converts data back into original format.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.transform" title="rdt.transformers.base.BaseTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(col)</p></td>
-<td><p>Does the required transformations to the data.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.base.BaseTransformer.transform" title="rdt.transformers.base.BaseTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform the data.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="rdt.transformers.base.BaseTransformer.check_data_type">
-<code class="sig-name descname">check_data_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.check_data_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.check_data_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check the type of the transformer and column match.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>column_metadata</strong> (<em>dict</em>) – Metadata of the column.</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – A <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised if the types don’t match.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="rdt.transformers.base.BaseTransformer.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prepare the transformer to convert data.</p>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformer to the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="rdt.transformers.base.BaseTransformer.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prepare the transformer to convert data and return the processed table.</p>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.fit_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformer to the data and then transform it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
+<dd class="field-even"><p>Transformed data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="rdt.transformers.base.BaseTransformer.reverse_transform">
-<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts data back into original format.</p>
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revert the transformations to the original values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
+<dd class="field-even"><p>Reverted data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.Series</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="rdt.transformers.base.BaseTransformer.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the required transformations to the data.</p>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/base.html#BaseTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
+<dd class="field-even"><p>Transformed data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="rdt.transformers.base.BaseTransformer.type">
-<code class="sig-name descname">type</code><em class="property"> = None</em><a class="headerlink" href="#rdt.transformers.base.BaseTransformer.type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -354,7 +347,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rdt.transformers.category.html" class="btn btn-neutral float-right" title="rdt.transformers.category module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rdt.transformers.boolean.html" class="btn btn-neutral float-right" title="rdt.transformers.boolean module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="rdt.transformers.html" class="btn btn-neutral float-left" title="rdt.transformers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.base &mdash; RDT 0.2.0.dev0 documentation</title>
+  <title>rdt.transformers.numerical &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -205,7 +205,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>rdt.transformers.base</li>
+      <li>rdt.transformers.numerical</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -220,63 +220,105 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for rdt.transformers.base</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="BaseTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer">[docs]</a><span></span><span class="k">class</span> <span class="nc">BaseTransformer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base class for all transformers.</span>
+  <h1>Source code for rdt.transformers.numerical</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="sd">    The ``BaseTransformer`` class contains methods that must be implemented</span>
-<span class="sd">    in order to create a new transformer. The ``fit`` method is optional,</span>
-<span class="sd">    and ``fit_transform`` method is already implemented.</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="k">import</span> <span class="n">BaseTransformer</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.null</span> <span class="k">import</span> <span class="n">NullTransformer</span>
+
+
+<div class="viewcode-block" id="NumericalTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.NumericalTransformer">[docs]</a><span class="k">class</span> <span class="nc">NumericalTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transformer for numerical data.</span>
+
+<span class="sd">    This transformer replaces integer values with their float equivalent.</span>
+<span class="sd">    Non null float values are not modified.</span>
+
+<span class="sd">    Null values are replaced using a ``NullTransformer``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dtype (data type):</span>
+<span class="sd">            Data type of the data to transform. It will be used when reversing the</span>
+<span class="sd">            transformation. If not provided, the dtype of the fit data will be used.</span>
+<span class="sd">            Defaults to ``None``.</span>
+<span class="sd">        nan (int, str or None):</span>
+<span class="sd">            Indicate what to do with the null values. If an integer is given, replace them</span>
+<span class="sd">            with the given value. If the strings ``&#39;mean&#39;`` or ``&#39;mode&#39;`` are given, replace</span>
+<span class="sd">            them with the corresponding aggregation. If ``None`` is given, do not replace them.</span>
+<span class="sd">            Defaults to ``&#39;mean&#39;``.</span>
+<span class="sd">        null_column (bool):</span>
+<span class="sd">            Whether to create a new column to indicate which values were null or not.</span>
+<span class="sd">            If ``None``, only create a new column when the data contains null values.</span>
+<span class="sd">            If ``True``, always create the new column whether there are null values or not.</span>
+<span class="sd">            If ``False``, do not create the new column.</span>
+<span class="sd">            Defaults to ``None``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="BaseTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">null_transformer</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">=</span> <span class="n">nan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span> <span class="o">=</span> <span class="n">null_column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
+
+<div class="viewcode-block" id="NumericalTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.NumericalTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the transformer to the data.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
-<span class="sd">                Data to transform.</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to fit.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span></div>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Transform the data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
+            <span class="n">fill_value</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="s1">&#39;mode&#39;</span><span class="p">:</span>
+            <span class="n">fill_value</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fill_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="n">fill_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NumericalTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.NumericalTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform numerical data.</span>
+
+<span class="sd">        Integer values are replaced by their float equivalent. Non null float values</span>
+<span class="sd">        are left unmodified.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
 <span class="sd">                Data to transform.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            numpy.array:</span>
-<span class="sd">                Transformed data.</span>
+<span class="sd">            numpy.ndarray</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseTransformer.fit_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fit the transformer to the data and then transform it.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NumericalTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.NumericalTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts data back into original format.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
+<span class="sd">            data (numpy.ndarray):</span>
 <span class="sd">                Data to transform.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            numpy.array:</span>
-<span class="sd">                Transformed data.</span>
+<span class="sd">            pandas.Series</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Revert the transformations to the original values.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">data</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
-<span class="sd">                Data to transform.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            pandas.Series:</span>
-<span class="sd">                Reverted data.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

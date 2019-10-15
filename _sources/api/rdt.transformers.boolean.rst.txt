@@ -1,0 +1,7 @@
+rdt.transformers.boolean module
+===============================
+
+.. automodule:: rdt.transformers.boolean
+   :members:
+   :undoc-members:
+   :show-inheritance:

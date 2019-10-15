@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.datetime &mdash; RDT 0.1.3 documentation</title>
+  <title>rdt.transformers.datetime &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -81,33 +81,33 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">RDT: Reversible Data Transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-with-pip">Install with pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-from-sources">Install from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#install-for-development">Install for Development</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#transforming-a-column">Transforming a column</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#load-the-demo-data">1. Load the demo data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../readme.html#load-the-transformer">2. Load the transformer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#transform-the-column-data">3. Transform the column data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#fit-the-transformer">3. Fit the Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#transform-the-data">4. Transform the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#revert-the-column-transformation">5. Revert the column transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../readme.html#transforming-a-table">Transforming a table</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#load-the-hypertransformer">1. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#fit-the-hypertransformer">2. Fit the HyperTransformer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../readme.html#transform-the-table-data">3. Transform the table data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html#what-s-next">What’s next?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
@@ -140,7 +140,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
@@ -202,8 +205,6 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-          <li><a href="../../rdt.html">rdt</a> &raquo;</li>
-        
       <li>rdt.transformers.datetime</li>
     
     
@@ -220,134 +221,104 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rdt.transformers.datetime</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="k">import</span> <span class="n">BaseTransformer</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.null</span> <span class="k">import</span> <span class="n">NullTransformer</span>
 
 
-<div class="viewcode-block" id="DTTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer">[docs]</a><span class="k">class</span> <span class="nc">DTTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Transformer for datetime data.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="DatetimeTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DatetimeTransformer">[docs]</a><span class="k">class</span> <span class="nc">DatetimeTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transformer for datetime data.</span>
 
-    <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;datetime&#39;</span>
+<span class="sd">    This transformer replaces datetime values with an integer timestamp</span>
+<span class="sd">    transformed to float.</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Initialize transformer.&quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="sd">    Null values are replaced using a ``NullTransformer``.</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">default_val</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">date_format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_metadata</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span>
+<span class="sd">    Args:</span>
+<span class="sd">        nan (int, str or None):</span>
+<span class="sd">            Indicate what to do with the null values. If an integer is given, replace them</span>
+<span class="sd">            with the given value. If the strings ``&#39;mean&#39;`` or ``&#39;mode&#39;`` are given, replace</span>
+<span class="sd">            them with the corresponding aggregation. If ``None`` is given, do not replace them.</span>
+<span class="sd">            Defaults to ``&#39;mean&#39;``.</span>
+<span class="sd">        null_column (bool):</span>
+<span class="sd">            Whether to create a new column to indicate which values were null or not.</span>
+<span class="sd">            If ``None``, only create a new column when the data contains null values.</span>
+<span class="sd">            If ``True``, always create the new column whether there are null values or not.</span>
+<span class="sd">            If ``False``, do not create the new column.</span>
+<span class="sd">            Defaults to ``None``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="DTTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Prepare the transformer to convert data.</span>
+    <span class="n">null_transformer</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">=</span> <span class="n">nan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span> <span class="o">=</span> <span class="n">null_column</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_transform</span><span class="p">(</span><span class="n">datetimes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform datetime values to integer.&quot;&quot;&quot;</span>
+        <span class="n">nulls</span> <span class="o">=</span> <span class="n">datetimes</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+        <span class="n">integers</span> <span class="o">=</span> <span class="n">datetimes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">integers</span><span class="p">[</span><span class="n">nulls</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">integers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DatetimeTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DatetimeTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the transformer to the data.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            col (pandas.DataFrame):</span>
-<span class="sd">                Data to transform.</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to fit the transformer to.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">dates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">safe_datetime_cast</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">default_val</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e9</span></div>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DTTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Prepare the transformer to convert data and return the processed table.</span>
+        <span class="n">transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
+            <span class="n">fill_value</span> <span class="o">=</span> <span class="n">transformed</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="s1">&#39;mode&#39;</span><span class="p">:</span>
+            <span class="n">fill_value</span> <span class="o">=</span> <span class="n">transformed</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fill_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="n">fill_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DatetimeTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DatetimeTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform datetime values to float values.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            col (pandas.DataFrame):</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
 <span class="sd">                Data to transform.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            pandas.DataFrame</span>
+<span class="sd">            numpy.ndarray</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-        <span class="n">out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">safe_datetime_cast</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-        <span class="n">out</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">out</span></div>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DTTransformer.strptime_format"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.strptime_format">[docs]</a>    <span class="k">def</span> <span class="nf">strptime_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_format</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DTTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Converts data back into original format.</span>
+<div class="viewcode-block" id="DatetimeTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DatetimeTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert float values back to datetimes.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            col (pandas.DataFrame):</span>
-<span class="sd">                Data to transform.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            pandas.DataFrame</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
-            <span class="n">col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-
-        <span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">col</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">output</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">safe_date</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">output</span></div>
-
-<div class="viewcode-block" id="DTTransformer.safe_datetime_cast"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.safe_datetime_cast">[docs]</a>    <span class="k">def</span> <span class="nf">safe_datetime_cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Parses string values into datetime.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            col (pandas.DataFrame):</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
 <span class="sd">                Data to transform.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            pandas.Series</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">casted_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">col</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">date_format</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">casted_dates</span><span class="p">[</span><span class="n">casted_dates</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]):</span>
-            <span class="c1"># This will raise an error for bad formatted data</span>
-            <span class="c1"># but not for out of bonds or missing dates.</span>
-            <span class="n">slice_</span> <span class="o">=</span> <span class="n">casted_dates</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">col</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
-            <span class="n">col</span><span class="p">[</span><span class="n">slice_</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strptime_format</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">casted_dates</span></div>
-
-<div class="viewcode-block" id="DTTransformer.to_timestamp"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.to_timestamp">[docs]</a>    <span class="k">def</span> <span class="nf">to_timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Transform a datetime series into linux epoch.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            data (pandas.DataFrame):</span>
-<span class="sd">                DataFrame containins a column named as ``self.col_name``.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            pandas.Series</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">_slice</span> <span class="o">=</span> <span class="o">~</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
-
-        <span class="n">result</span><span class="p">[</span><span class="n">_slice</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">_slice</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span></div>
-
-<div class="viewcode-block" id="DTTransformer.safe_date"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DTTransformer.safe_date">[docs]</a>    <span class="k">def</span> <span class="nf">safe_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Transform ``x[self.col_name]`` into a date string.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            x (dict-like or pandas.Series):</span>
-<span class="sd">                Row containing data to cast safely.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">t</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">col_name</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">t</span>
-
-        <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">isposinf</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span>
-
-        <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">isneginf</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="n">t</span> <span class="o">=</span> <span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span>
-
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">date_format</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span></div></div>
+        <span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

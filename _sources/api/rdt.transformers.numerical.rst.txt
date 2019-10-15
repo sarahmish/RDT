@@ -1,0 +1,7 @@
+rdt.transformers.numerical module
+=================================
+
+.. automodule:: rdt.transformers.numerical
+   :members:
+   :undoc-members:
+   :show-inheritance:

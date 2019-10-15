@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.datetime module &mdash; RDT 0.2.0.dev0 documentation</title>
+  <title>rdt.transformers.boolean module &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rdt.transformers.null module" href="rdt.transformers.null.html" />
-    <link rel="prev" title="rdt.transformers.categorical module" href="rdt.transformers.categorical.html" /> 
+    <link rel="next" title="rdt.transformers.categorical module" href="rdt.transformers.categorical.html" />
+    <link rel="prev" title="rdt.transformers.base module" href="rdt.transformers.base.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -209,14 +209,14 @@
         
           <li><a href="rdt.transformers.html">rdt.transformers package</a> &raquo;</li>
         
-      <li>rdt.transformers.datetime module</li>
+      <li>rdt.transformers.boolean module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/HDI-Project/RDT/blob/master/docs/api/rdt.transformers.datetime.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HDI-Project/RDT/blob/master/docs/api/rdt.transformers.boolean.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -230,8 +230,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-rdt.transformers.datetime">
-<span id="rdt-transformers-datetime-module"></span><h1>rdt.transformers.datetime module<a class="headerlink" href="#module-rdt.transformers.datetime" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-rdt.transformers.boolean">
+<span id="rdt-transformers-boolean-module"></span><h1>rdt.transformers.boolean module<a class="headerlink" href="#module-rdt.transformers.boolean" title="Permalink to this headline">¶</a></h1>
 <p><strong>Classes</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -239,28 +239,26 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.datetime.DatetimeTransformer" title="rdt.transformers.datetime.DatetimeTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code></a>([nan, null_column])</p></td>
-<td><p>Transformer for datetime data.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.boolean.BooleanTransformer" title="rdt.transformers.boolean.BooleanTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BooleanTransformer</span></code></a>([nan, null_column])</p></td>
+<td><p>Transformer for boolean data.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="class">
-<dt id="rdt.transformers.datetime.DatetimeTransformer">
-<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.datetime.</code><code class="sig-name descname">DatetimeTransformer</code><span class="sig-paren">(</span><em class="sig-param">nan='mean'</em>, <em class="sig-param">null_column=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/datetime.html#DatetimeTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.datetime.DatetimeTransformer" title="Permalink to this definition">¶</a></dt>
+<dt id="rdt.transformers.boolean.BooleanTransformer">
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.boolean.</code><code class="sig-name descname">BooleanTransformer</code><span class="sig-paren">(</span><em class="sig-param">nan=-1</em>, <em class="sig-param">null_column=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/boolean.html#BooleanTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.boolean.BooleanTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rdt.transformers.base.html#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.base.BaseTransformer</span></code></a></p>
-<p>Transformer for datetime data.</p>
-<p>This transformer replaces datetime values with an integer timestamp
+<p>Transformer for boolean data.</p>
+<p>This transformer replaces boolean values with their integer representation
 transformed to float.</p>
 <p>Null values are replaced using a <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nan</strong> (<em>int</em><em>, </em><em>str</em><em> or </em><em>None</em>) – Indicate what to do with the null values. If an integer is given, replace them
-with the given value. If the strings <code class="docutils literal notranslate"><span class="pre">'mean'</span></code> or <code class="docutils literal notranslate"><span class="pre">'mode'</span></code> are given, replace
-them with the corresponding aggregation. If <code class="docutils literal notranslate"><span class="pre">None</span></code> is given, do not replace them.
-Defaults to <code class="docutils literal notranslate"><span class="pre">'mean'</span></code>.</p></li>
+<li><p><strong>nan</strong> (<em>int</em><em> or </em><em>None</em>) – Replace null values with the given value. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, do not replace them.
+Defaults to <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 <li><p><strong>null_column</strong> (<em>bool</em>) – Whether to create a new column to indicate which values were null or not.
-If <code class="docutils literal notranslate"><span class="pre">None</span></code>, only create a new column when the data contains null values.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, only create a new column when the fit data contains null values.
 If <code class="docutils literal notranslate"><span class="pre">True</span></code>, always create the new column whether there are null values or not.
 If <code class="docutils literal notranslate"><span class="pre">False</span></code>, do not create the new column.
 Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
@@ -274,40 +272,40 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.datetime.DatetimeTransformer.fit" title="rdt.transformers.datetime.DatetimeTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.boolean.BooleanTransformer.fit" title="rdt.transformers.boolean.BooleanTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
 <td><p>Fit the transformer to the data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.datetime.DatetimeTransformer.reverse_transform" title="rdt.transformers.datetime.DatetimeTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
-<td><p>Convert float values back to datetimes.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.boolean.BooleanTransformer.reverse_transform" title="rdt.transformers.boolean.BooleanTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
+<td><p>Transform float values back to the original boolean values.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.datetime.DatetimeTransformer.transform" title="rdt.transformers.datetime.DatetimeTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
-<td><p>Transform datetime values to float values.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.boolean.BooleanTransformer.transform" title="rdt.transformers.boolean.BooleanTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform boolean to float.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="rdt.transformers.datetime.DatetimeTransformer.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/datetime.html#DatetimeTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.datetime.DatetimeTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dt id="rdt.transformers.boolean.BooleanTransformer.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/boolean.html#BooleanTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.boolean.BooleanTransformer.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the transformer to the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to fit the transformer to.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to fit to.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="rdt.transformers.datetime.DatetimeTransformer.null_transformer">
-<code class="sig-name descname">null_transformer</code><em class="property"> = None</em><a class="headerlink" href="#rdt.transformers.datetime.DatetimeTransformer.null_transformer" title="Permalink to this definition">¶</a></dt>
+<dt id="rdt.transformers.boolean.BooleanTransformer.null_transformer">
+<code class="sig-name descname">null_transformer</code><em class="property"> = None</em><a class="headerlink" href="#rdt.transformers.boolean.BooleanTransformer.null_transformer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="rdt.transformers.datetime.DatetimeTransformer.reverse_transform">
-<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/datetime.html#DatetimeTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.datetime.DatetimeTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert float values back to datetimes.</p>
+<dt id="rdt.transformers.boolean.BooleanTransformer.reverse_transform">
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/boolean.html#BooleanTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.boolean.BooleanTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform float values back to the original boolean values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to transform.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>numpy.ndarray</em>) – Data to revert.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>pandas.Series</p>
@@ -316,9 +314,11 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 </dd></dl>
 
 <dl class="method">
-<dt id="rdt.transformers.datetime.DatetimeTransformer.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/datetime.html#DatetimeTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.datetime.DatetimeTransformer.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform datetime values to float values.</p>
+<dt id="rdt.transformers.boolean.BooleanTransformer.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/boolean.html#BooleanTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.boolean.BooleanTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform boolean to float.</p>
+<p>The boolean values will be replaced by the corresponding integer
+representations as float values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to transform.</p>
@@ -341,10 +341,10 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rdt.transformers.null.html" class="btn btn-neutral float-right" title="rdt.transformers.null module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rdt.transformers.categorical.html" class="btn btn-neutral float-right" title="rdt.transformers.categorical module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rdt.transformers.categorical.html" class="btn btn-neutral float-left" title="rdt.transformers.categorical module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rdt.transformers.base.html" class="btn btn-neutral float-left" title="rdt.transformers.base module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

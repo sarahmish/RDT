@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; RDT 0.1.3 documentation</title>
+  <title>Index &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -82,33 +82,33 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="readme.html">RDT: Reversible Data Transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#install-with-pip">Install with pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-sources">Install from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-for-development">Install for Development</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#transforming-a-column">Transforming a column</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-demo-data">1. Load the demo data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-transformer">2. Load the transformer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-column-data">3. Transform the column data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#fit-the-transformer">3. Fit the Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-data">4. Transform the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-column-transformation">5. Revert the column transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="readme.html#transforming-a-table">Transforming a table</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#load-the-hypertransformer">1. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#fit-the-hypertransformer">2. Fit the HyperTransformer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#transform-the-table-data">3. Transform the table data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#what-s-next">What’s next?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
@@ -141,7 +141,10 @@
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
@@ -226,33 +229,17 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
+ <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#F"><strong>F</strong></a>
- | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
- | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
- | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
- | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  
 </div>
-<h2 id="A">A</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.anonymize_column">anonymize_column() (rdt.transformers.category.CatTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.anonymize_column">(rdt.transformers.CatTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -263,23 +250,23 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/rdt.transformers.html#rdt.transformers.BooleanTransformer">BooleanTransformer (class in rdt.transformers)</a>
+
+      <ul>
+        <li><a href="api/rdt.transformers.boolean.html#rdt.transformers.boolean.BooleanTransformer">(class in rdt.transformers.boolean)</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer">CatTransformer (class in rdt.transformers)</a>
+      <li><a href="api/rdt.transformers.html#rdt.transformers.CategoricalTransformer">CategoricalTransformer (class in rdt.transformers)</a>
 
       <ul>
-        <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer">(class in rdt.transformers.category)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.base.html#rdt.transformers.base.BaseTransformer.check_data_type">check_data_type() (rdt.transformers.base.BaseTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.check_data_type">(rdt.transformers.BaseTransformer method)</a>
+        <li><a href="api/rdt.transformers.categorical.html#rdt.transformers.categorical.CategoricalTransformer">(class in rdt.transformers.categorical)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -288,10 +275,10 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer">DTTransformer (class in rdt.transformers)</a>
+      <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer">DatetimeTransformer (class in rdt.transformers)</a>
 
       <ul>
-        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer">(class in rdt.transformers.datetime)</a>
+        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DatetimeTransformer">(class in rdt.transformers.datetime)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -300,28 +287,34 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.base.html#rdt.transformers.base.BaseTransformer.fit">fit() (rdt.transformers.base.BaseTransformer method)</a>
+      <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.fit">fit() (rdt.hyper_transformer.HyperTransformer method)</a>
 
       <ul>
+        <li><a href="api/rdt.html#rdt.HyperTransformer.fit">(rdt.HyperTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.base.html#rdt.transformers.base.BaseTransformer.fit">(rdt.transformers.base.BaseTransformer method)</a>
+</li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.fit">(rdt.transformers.BaseTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.fit">(rdt.transformers.category.CatTransformer method)</a>
+        <li><a href="api/rdt.transformers.boolean.html#rdt.transformers.boolean.BooleanTransformer.fit">(rdt.transformers.boolean.BooleanTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.fit">(rdt.transformers.CatTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.BooleanTransformer.fit">(rdt.transformers.BooleanTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.fit">(rdt.transformers.datetime.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.categorical.html#rdt.transformers.categorical.CategoricalTransformer.fit">(rdt.transformers.categorical.CategoricalTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.fit">(rdt.transformers.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.CategoricalTransformer.fit">(rdt.transformers.CategoricalTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DatetimeTransformer.fit">(rdt.transformers.datetime.DatetimeTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.fit">(rdt.transformers.DatetimeTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.fit">(rdt.transformers.null.NullTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.fit">(rdt.transformers.NullTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.fit">(rdt.transformers.number.NumberTransformer method)</a>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.fit">(rdt.transformers.numerical.NumericalTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.fit">(rdt.transformers.NumberTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.positive_number.html#rdt.transformers.positive_number.PositiveNumberTransformer.fit">(rdt.transformers.positive_number.PositiveNumberTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.NumericalTransformer.fit">(rdt.transformers.NumericalTransformer method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -334,58 +327,6 @@
         <li><a href="api/rdt.transformers.base.html#rdt.transformers.base.BaseTransformer.fit_transform">(rdt.transformers.base.BaseTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.fit_transform">(rdt.transformers.BaseTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.fit_transform">(rdt.transformers.category.CatTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.fit_transform">(rdt.transformers.CatTransformer method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.fit_transform_table">fit_transform_table() (rdt.hyper_transformer.HyperTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.html#rdt.HyperTransformer.fit_transform_table">(rdt.HyperTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="G">G</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.get_category">get_category() (rdt.transformers.category.CatTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.get_category">(rdt.transformers.CatTransformer method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.get_class">get_class() (rdt.hyper_transformer.HyperTransformer static method)</a>
-
-      <ul>
-        <li><a href="api/rdt.html#rdt.HyperTransformer.get_class">(rdt.HyperTransformer static method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.get_default_value">get_default_value() (rdt.transformers.number.NumberTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.get_default_value">(rdt.transformers.NumberTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.get_generator">get_generator() (rdt.transformers.category.CatTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.get_generator">(rdt.transformers.CatTransformer method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.get_val">get_val() (rdt.transformers.category.CatTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.get_val">(rdt.transformers.CatTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.get_val">(rdt.transformers.number.NumberTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.get_val">(rdt.transformers.NumberTransformer method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -403,16 +344,36 @@
   </ul></td>
 </tr></table>
 
-<h2 id="L">L</h2>
+<h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.html#rdt.load_data">load_data() (in module rdt)</a>
+      <li><a href="api/rdt.transformers.categorical.html#rdt.transformers.categorical.CategoricalTransformer.mapping">mapping (rdt.transformers.categorical.CategoricalTransformer attribute)</a>
+
+      <ul>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.CategoricalTransformer.mapping">(rdt.transformers.CategoricalTransformer attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/rdt.transformers.boolean.html#rdt.transformers.boolean.BooleanTransformer.null_transformer">null_transformer (rdt.transformers.boolean.BooleanTransformer attribute)</a>
+
+      <ul>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.BooleanTransformer.null_transformer">(rdt.transformers.BooleanTransformer attribute)</a>
+</li>
+        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DatetimeTransformer.null_transformer">(rdt.transformers.datetime.DatetimeTransformer attribute)</a>
+</li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.null_transformer">(rdt.transformers.DatetimeTransformer attribute)</a>
+</li>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.null_transformer">(rdt.transformers.numerical.NumericalTransformer attribute)</a>
+</li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.NumericalTransformer.null_transformer">(rdt.transformers.NumericalTransformer attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer">NullTransformer (class in rdt.transformers)</a>
 
@@ -420,22 +381,12 @@
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer">(class in rdt.transformers.null)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer">NumberTransformer (class in rdt.transformers)</a>
+      <li><a href="api/rdt.transformers.html#rdt.transformers.NumericalTransformer">NumericalTransformer (class in rdt.transformers)</a>
 
       <ul>
-        <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer">(class in rdt.transformers.number)</a>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer">(class in rdt.transformers.numerical)</a>
 </li>
       </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.positive_number.html#rdt.transformers.positive_number.PositiveNumberTransformer">PositiveNumberTransformer (class in rdt.transformers.positive_number)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -450,15 +401,15 @@
 </li>
       <li><a href="api/rdt.transformers.base.html#module-rdt.transformers.base">rdt.transformers.base (module)</a>
 </li>
-      <li><a href="api/rdt.transformers.category.html#module-rdt.transformers.category">rdt.transformers.category (module)</a>
+      <li><a href="api/rdt.transformers.boolean.html#module-rdt.transformers.boolean">rdt.transformers.boolean (module)</a>
+</li>
+      <li><a href="api/rdt.transformers.categorical.html#module-rdt.transformers.categorical">rdt.transformers.categorical (module)</a>
 </li>
       <li><a href="api/rdt.transformers.datetime.html#module-rdt.transformers.datetime">rdt.transformers.datetime (module)</a>
 </li>
       <li><a href="api/rdt.transformers.null.html#module-rdt.transformers.null">rdt.transformers.null (module)</a>
 </li>
-      <li><a href="api/rdt.transformers.number.html#module-rdt.transformers.number">rdt.transformers.number (module)</a>
-</li>
-      <li><a href="api/rdt.transformers.positive_number.html#module-rdt.transformers.positive_number">rdt.transformers.positive_number (module)</a>
+      <li><a href="api/rdt.transformers.numerical.html#module-rdt.transformers.numerical">rdt.transformers.numerical (module)</a>
 </li>
       <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.reverse_transform">reverse_transform() (rdt.hyper_transformer.HyperTransformer method)</a>
 
@@ -469,63 +420,25 @@
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.reverse_transform">(rdt.transformers.BaseTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.reverse_transform">(rdt.transformers.category.CatTransformer method)</a>
+        <li><a href="api/rdt.transformers.boolean.html#rdt.transformers.boolean.BooleanTransformer.reverse_transform">(rdt.transformers.boolean.BooleanTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.reverse_transform">(rdt.transformers.CatTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.BooleanTransformer.reverse_transform">(rdt.transformers.BooleanTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.reverse_transform">(rdt.transformers.datetime.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.categorical.html#rdt.transformers.categorical.CategoricalTransformer.reverse_transform">(rdt.transformers.categorical.CategoricalTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.reverse_transform">(rdt.transformers.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.CategoricalTransformer.reverse_transform">(rdt.transformers.CategoricalTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DatetimeTransformer.reverse_transform">(rdt.transformers.datetime.DatetimeTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.reverse_transform">(rdt.transformers.DatetimeTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.reverse_transform">(rdt.transformers.null.NullTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.reverse_transform">(rdt.transformers.NullTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.reverse_transform">(rdt.transformers.number.NumberTransformer method)</a>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.reverse_transform">(rdt.transformers.numerical.NumericalTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.reverse_transform">(rdt.transformers.NumberTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.positive_number.html#rdt.transformers.positive_number.PositiveNumberTransformer.reverse_transform">(rdt.transformers.positive_number.PositiveNumberTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.reverse_transform_table">reverse_transform_table() (rdt.hyper_transformer.HyperTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.html#rdt.HyperTransformer.reverse_transform_table">(rdt.HyperTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="S">S</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.safe_date">safe_date() (rdt.transformers.datetime.DTTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.safe_date">(rdt.transformers.DTTransformer method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.safe_datetime_cast">safe_datetime_cast() (rdt.transformers.datetime.DTTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.safe_datetime_cast">(rdt.transformers.DTTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.safe_round">safe_round() (rdt.transformers.number.NumberTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.safe_round">(rdt.transformers.NumberTransformer method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.strptime_format">strptime_format() (rdt.transformers.datetime.DTTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.strptime_format">(rdt.transformers.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.NumericalTransformer.reverse_transform">(rdt.transformers.NumericalTransformer method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -534,12 +447,6 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.to_timestamp">to_timestamp() (rdt.transformers.datetime.DTTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.to_timestamp">(rdt.transformers.DTTransformer method)</a>
-</li>
-      </ul></li>
       <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.transform">transform() (rdt.hyper_transformer.HyperTransformer method)</a>
 
       <ul>
@@ -549,55 +456,25 @@
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.transform">(rdt.transformers.BaseTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.transform">(rdt.transformers.category.CatTransformer method)</a>
+        <li><a href="api/rdt.transformers.boolean.html#rdt.transformers.boolean.BooleanTransformer.transform">(rdt.transformers.boolean.BooleanTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.transform">(rdt.transformers.CatTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.BooleanTransformer.transform">(rdt.transformers.BooleanTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.transform">(rdt.transformers.datetime.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.categorical.html#rdt.transformers.categorical.CategoricalTransformer.transform">(rdt.transformers.categorical.CategoricalTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.transform">(rdt.transformers.DTTransformer method)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.CategoricalTransformer.transform">(rdt.transformers.CategoricalTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DatetimeTransformer.transform">(rdt.transformers.datetime.DatetimeTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.transform">(rdt.transformers.DatetimeTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.transform">(rdt.transformers.null.NullTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.transform">(rdt.transformers.NullTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.transform">(rdt.transformers.number.NumberTransformer method)</a>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.transform">(rdt.transformers.numerical.NumericalTransformer method)</a>
 </li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.transform">(rdt.transformers.NumberTransformer method)</a>
-</li>
-        <li><a href="api/rdt.transformers.positive_number.html#rdt.transformers.positive_number.PositiveNumberTransformer.transform">(rdt.transformers.positive_number.PositiveNumberTransformer method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/rdt.hyper_transformer.html#rdt.hyper_transformer.HyperTransformer.transform_table">transform_table() (rdt.hyper_transformer.HyperTransformer method)</a>
-
-      <ul>
-        <li><a href="api/rdt.html#rdt.HyperTransformer.transform_table">(rdt.HyperTransformer method)</a>
-</li>
-      </ul></li>
-      <li><a href="api/rdt.transformers.base.html#rdt.transformers.base.BaseTransformer.type">type (rdt.transformers.base.BaseTransformer attribute)</a>
-
-      <ul>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.type">(rdt.transformers.BaseTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.category.html#rdt.transformers.category.CatTransformer.type">(rdt.transformers.category.CatTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.CatTransformer.type">(rdt.transformers.CatTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.datetime.html#rdt.transformers.datetime.DTTransformer.type">(rdt.transformers.datetime.DTTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.DTTransformer.type">(rdt.transformers.DTTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.type">(rdt.transformers.null.NullTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.type">(rdt.transformers.NullTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.number.html#rdt.transformers.number.NumberTransformer.type">(rdt.transformers.number.NumberTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.html#rdt.transformers.NumberTransformer.type">(rdt.transformers.NumberTransformer attribute)</a>
-</li>
-        <li><a href="api/rdt.transformers.positive_number.html#rdt.transformers.positive_number.PositiveNumberTransformer.type">(rdt.transformers.positive_number.PositiveNumberTransformer attribute)</a>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.NumericalTransformer.transform">(rdt.transformers.NumericalTransformer method)</a>
 </li>
       </ul></li>
   </ul></td>

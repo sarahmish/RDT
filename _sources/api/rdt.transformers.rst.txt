@@ -7,11 +7,11 @@ Submodules
 .. toctree::
 
    rdt.transformers.base
-   rdt.transformers.category
+   rdt.transformers.boolean
+   rdt.transformers.categorical
    rdt.transformers.datetime
    rdt.transformers.null
-   rdt.transformers.number
-   rdt.transformers.positive_number
+   rdt.transformers.numerical
 
 Module contents
 ---------------

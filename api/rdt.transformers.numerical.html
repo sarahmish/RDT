@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.number module &mdash; RDT 0.1.3 documentation</title>
+  <title>rdt.transformers.numerical module &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rdt.transformers.positive_number module" href="rdt.transformers.positive_number.html" />
+    <link rel="next" title="rdt.hyper_transformer module" href="rdt.hyper_transformer.html" />
     <link rel="prev" title="rdt.transformers.null module" href="rdt.transformers.null.html" /> 
 </head>
 
@@ -83,33 +83,33 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">RDT: Reversible Data Transforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#install-with-pip">Install with pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-sources">Install from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-for-development">Install for Development</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#quickstart">Quickstart</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#transforming-a-column">Transforming a column</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-column-and-its-metadata">1. Load the column and its metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-demo-data">1. Load the demo data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-transformer">2. Load the transformer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-column-data">3. Transform the column data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-column-transformation">4. Revert the column transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#fit-the-transformer">3. Fit the Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-data">4. Transform the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-column-transformation">5. Revert the column transformation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../readme.html#transforming-a-table">Transforming a table</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-table-data-and-its-metadata">1. Load the table data and its metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-hypertransformer">2. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#load-the-hypertransformer">1. Load the HyperTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#fit-the-hypertransformer">2. Fit the HyperTransformer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#transform-the-table-data">3. Transform the table data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../readme.html#revert-the-table-transformation">4. Revert the table transformation</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul class="current">
@@ -142,7 +142,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
@@ -206,14 +209,14 @@
         
           <li><a href="rdt.transformers.html">rdt.transformers package</a> &raquo;</li>
         
-      <li>rdt.transformers.number module</li>
+      <li>rdt.transformers.numerical module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/HDI-Project/RDT/blob/master/docs/api/rdt.transformers.number.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HDI-Project/RDT/blob/master/docs/api/rdt.transformers.numerical.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -227,8 +230,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-rdt.transformers.number">
-<span id="rdt-transformers-number-module"></span><h1>rdt.transformers.number module<a class="headerlink" href="#module-rdt.transformers.number" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-rdt.transformers.numerical">
+<span id="rdt-transformers-numerical-module"></span><h1>rdt.transformers.numerical module<a class="headerlink" href="#module-rdt.transformers.numerical" title="Permalink to this headline">¶</a></h1>
 <p><strong>Classes</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -236,16 +239,37 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer" title="rdt.transformers.number.NumberTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumberTransformer</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.numerical.NumericalTransformer" title="rdt.transformers.numerical.NumericalTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalTransformer</span></code></a>([dtype, nan, null_column])</p></td>
 <td><p>Transformer for numerical data.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="class">
-<dt id="rdt.transformers.number.NumberTransformer">
-<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.number.</code><code class="sig-name descname">NumberTransformer</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer" title="Permalink to this definition">¶</a></dt>
+<dt id="rdt.transformers.numerical.NumericalTransformer">
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.numerical.</code><code class="sig-name descname">NumericalTransformer</code><span class="sig-paren">(</span><em class="sig-param">dtype=None</em>, <em class="sig-param">nan='mean'</em>, <em class="sig-param">null_column=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#NumericalTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.numerical.NumericalTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rdt.transformers.base.html#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.base.BaseTransformer</span></code></a></p>
 <p>Transformer for numerical data.</p>
+<p>This transformer replaces integer values with their float equivalent.
+Non null float values are not modified.</p>
+<p>Null values are replaced using a <code class="docutils literal notranslate"><span class="pre">NullTransformer</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dtype</strong> (<em>data type</em>) – Data type of the data to transform. It will be used when reversing the
+transformation. If not provided, the dtype of the fit data will be used.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>nan</strong> (<em>int</em><em>, </em><em>str</em><em> or </em><em>None</em>) – Indicate what to do with the null values. If an integer is given, replace them
+with the given value. If the strings <code class="docutils literal notranslate"><span class="pre">'mean'</span></code> or <code class="docutils literal notranslate"><span class="pre">'mode'</span></code> are given, replace
+them with the corresponding aggregation. If <code class="docutils literal notranslate"><span class="pre">None</span></code> is given, do not replace them.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'mean'</span></code>.</p></li>
+<li><p><strong>null_column</strong> (<em>bool</em>) – Whether to create a new column to indicate which values were null or not.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, only create a new column when the data contains null values.
+If <code class="docutils literal notranslate"><span class="pre">True</span></code>, always create the new column whether there are null values or not.
+If <code class="docutils literal notranslate"><span class="pre">False</span></code>, do not create the new column.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
 <p><strong>Methods</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -253,112 +277,62 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.fit" title="rdt.transformers.number.NumberTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(col)</p></td>
-<td><p>Sets the default value.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.numerical.NumericalTransformer.fit" title="rdt.transformers.numerical.NumericalTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<td><p>Fit the transformer to the data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.get_default_value" title="rdt.transformers.number.NumberTransformer.get_default_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_default_value</span></code></a>(data)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.get_val" title="rdt.transformers.number.NumberTransformer.get_val"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_val</span></code></a>(x)</p></td>
-<td><p>Converts to int.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.reverse_transform" title="rdt.transformers.number.NumberTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(col)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.numerical.NumericalTransformer.reverse_transform" title="rdt.transformers.numerical.NumericalTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
 <td><p>Converts data back into original format.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.safe_round" title="rdt.transformers.number.NumberTransformer.safe_round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_round</span></code></a>(x)</p></td>
-<td><p>Returns a converter that takes in a value and turns it into an integer, if necessary.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.transform" title="rdt.transformers.number.NumberTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(col)</p></td>
-<td><p>Prepare the transformer to convert data and return the processed table.</p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Attributes</strong></p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.number.NumberTransformer.type" title="rdt.transformers.number.NumberTransformer.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a></p></td>
-<td><p>str(object=’’) -&gt; str</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.numerical.NumericalTransformer.transform" title="rdt.transformers.numerical.NumericalTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform numerical data.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="rdt.transformers.number.NumberTransformer.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the default value.</p>
+<dt id="rdt.transformers.numerical.NumericalTransformer.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#NumericalTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.numerical.NumericalTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformer to the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="rdt.transformers.number.NumberTransformer.get_default_value">
-<code class="sig-name descname">get_default_value</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer.get_default_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.get_default_value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="rdt.transformers.number.NumberTransformer.get_val">
-<code class="sig-name descname">get_val</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.get_val" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts to int.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rdt.transformers.number.NumberTransformer.reverse_transform">
-<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts data back into original format.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="rdt.transformers.number.NumberTransformer.safe_round">
-<code class="sig-name descname">safe_round</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer.safe_round"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.safe_round" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a converter that takes in a value and turns it into an integer, if necessary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>col_name</strong> (<em>str</em>) – Name of the column.</p></li>
-<li><p><strong>subtype</strong> (<em>str</em>) – Numeric subtype of the values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="rdt.transformers.number.NumberTransformer.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">col</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/number.html#NumberTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prepare the transformer to convert data and return the processed table.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>pandas.DataFrame</em>) – Data to transform.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>pandas.DataFrame</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to fit.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="rdt.transformers.number.NumberTransformer.type">
-<code class="sig-name descname">type</code><em class="property"> = 'number'</em><a class="headerlink" href="#rdt.transformers.number.NumberTransformer.type" title="Permalink to this definition">¶</a></dt>
+<dt id="rdt.transformers.numerical.NumericalTransformer.null_transformer">
+<code class="sig-name descname">null_transformer</code><em class="property"> = None</em><a class="headerlink" href="#rdt.transformers.numerical.NumericalTransformer.null_transformer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.numerical.NumericalTransformer.reverse_transform">
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#NumericalTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.numerical.NumericalTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts data back into original format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>numpy.ndarray</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.numerical.NumericalTransformer.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#NumericalTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.numerical.NumericalTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform numerical data.</p>
+<p>Integer values are replaced by their float equivalent. Non null float values
+are left unmodified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -372,7 +346,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rdt.transformers.positive_number.html" class="btn btn-neutral float-right" title="rdt.transformers.positive_number module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rdt.hyper_transformer.html" class="btn btn-neutral float-right" title="rdt.hyper_transformer module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="rdt.transformers.null.html" class="btn btn-neutral float-left" title="rdt.transformers.null module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

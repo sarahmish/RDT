@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.base &mdash; RDT 0.2.0.dev0 documentation</title>
+  <title>rdt.transformers.boolean &mdash; RDT 0.2.0.dev0 documentation</title>
   
 
   
@@ -205,7 +205,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>rdt.transformers.base</li>
+      <li>rdt.transformers.boolean</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -220,63 +220,88 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for rdt.transformers.base</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="BaseTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer">[docs]</a><span></span><span class="k">class</span> <span class="nc">BaseTransformer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base class for all transformers.</span>
+  <h1>Source code for rdt.transformers.boolean</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="sd">    The ``BaseTransformer`` class contains methods that must be implemented</span>
-<span class="sd">    in order to create a new transformer. The ``fit`` method is optional,</span>
-<span class="sd">    and ``fit_transform`` method is already implemented.</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="k">import</span> <span class="n">BaseTransformer</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.null</span> <span class="k">import</span> <span class="n">NullTransformer</span>
+
+
+<div class="viewcode-block" id="BooleanTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.boolean.html#rdt.transformers.BooleanTransformer">[docs]</a><span class="k">class</span> <span class="nc">BooleanTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Transformer for boolean data.</span>
+
+<span class="sd">    This transformer replaces boolean values with their integer representation</span>
+<span class="sd">    transformed to float.</span>
+
+<span class="sd">    Null values are replaced using a ``NullTransformer``.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nan (int or None):</span>
+<span class="sd">            Replace null values with the given value. If ``None``, do not replace them.</span>
+<span class="sd">            Defaults to ``-1``.</span>
+<span class="sd">        null_column (bool):</span>
+<span class="sd">            Whether to create a new column to indicate which values were null or not.</span>
+<span class="sd">            If ``None``, only create a new column when the fit data contains null values.</span>
+<span class="sd">            If ``True``, always create the new column whether there are null values or not.</span>
+<span class="sd">            If ``False``, do not create the new column.</span>
+<span class="sd">            Defaults to ``None``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="BaseTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">null_transformer</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nan</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">=</span> <span class="n">nan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span> <span class="o">=</span> <span class="n">null_column</span>
+
+<div class="viewcode-block" id="BooleanTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.boolean.html#rdt.transformers.BooleanTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the transformer to the data.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
-<span class="sd">                Data to transform.</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to fit to.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span></div>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Transform the data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BooleanTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.boolean.html#rdt.transformers.BooleanTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform boolean to float.</span>
+
+<span class="sd">        The boolean values will be replaced by the corresponding integer</span>
+<span class="sd">        representations as float values.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
 <span class="sd">                Data to transform.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            numpy.array:</span>
-<span class="sd">                Transformed data.</span>
+<span class="sd">            numpy.ndarray</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseTransformer.fit_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fit the transformer to the data and then transform it.</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BooleanTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.boolean.html#rdt.transformers.BooleanTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform float values back to the original boolean values.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
-<span class="sd">                Data to transform.</span>
+<span class="sd">            data (numpy.ndarray):</span>
+<span class="sd">                Data to revert.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            numpy.array:</span>
-<span class="sd">                Transformed data.</span>
+<span class="sd">            pandas.Series</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BaseTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Revert the transformations to the original values.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            data (pandas.Series or numpy.array):</span>
-<span class="sd">                Data to transform.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            pandas.Series:</span>
-<span class="sd">                Reverted data.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        <span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div></div>
 </pre></div>
 
            </div>
