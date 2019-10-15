@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History &mdash; RDT 0.2.0.dev0 documentation</title>
+  <title>History &mdash; RDT 0.2.1.dev0 documentation</title>
   
 
   
@@ -149,14 +149,18 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.2.0 - 2019-10-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#issues">Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.1.3 - 2019-09-24</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#general-improvements">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -228,11 +232,29 @@
   <div class="section" id="history">
 <h1>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.1.3 - 2019-09-24<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.2.0 - 2019-10-15<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>This version comes with a brand new API and internal implementation, removing the old
+metadata JSON from the user provided arguments, and making each transformer work only
+with <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> of their corresponding data type.</p>
+<p>As part of this change, several transformer names have been changed and a new BooleanTransformer
+and a feature to automatically decide which transformers to use based on dtypes have been added.</p>
+<p>Unit test coverage has also been increased to 100%.</p>
+<p>Special thanks to &#64;JDTheRipperPC and &#64;csala for the big efforts put in making this
+release possible.</p>
+<div class="section" id="issues">
+<h3>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Drop the usage of meta - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/72">#72</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Make CatTransformer.probability_map deterministic - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/25">#25</a> by &#64;csala</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>0.1.3 - 2019-09-24<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="new-features">
 <h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Add attributes NullTransformer and col_meta. - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/30">#30</a> by &#64;ManuelAlvarezC</p></li>
+<li><p>Add attributes NullTransformer and col_meta - Issue <a class="reference external" href="https://github.com/HDI-Project/RDT/issues/30">#30</a> by &#64;ManuelAlvarezC</p></li>
 </ul>
 </div>
 <div class="section" id="general-improvements">
@@ -247,8 +269,8 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>0.1.2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h2>0.1.2<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add a numerical transformer for positive numbers.</p></li>
 <li><p>Add option to anonymize data on categorical transformer.</p></li>
@@ -260,8 +282,8 @@
 <li><p>Refactor performance-wise the transformers.</p></li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h2>0.1.1<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h2>0.1.1<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Improve handling of NaN in NumberTransformer and CatTransformer.</p></li>
 <li><p>Add unittests for HyperTransformer.</p></li>
@@ -272,8 +294,8 @@
 <li><p>Merge <code class="docutils literal notranslate"><span class="pre">rdt.utils</span></code> into <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> class.</p></li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h2>0.1.0<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h2>0.1.0<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>First release on PyPI.</p></li>
 </ul>
