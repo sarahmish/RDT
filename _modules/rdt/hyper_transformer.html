@@ -230,7 +230,7 @@
   <h1>Source code for rdt.hyper_transformer</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">rdt.transformers</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">BooleanTransformer</span><span class="p">,</span> <span class="n">CategoricalTransformer</span><span class="p">,</span> <span class="n">DatetimeTransformer</span><span class="p">,</span> <span class="n">NumericalTransformer</span><span class="p">,</span>
     <span class="n">load_transformers</span><span class="p">)</span>
 
@@ -278,7 +278,7 @@
 <span class="sd">        ... }</span>
 <span class="sd">        &gt;&gt;&gt; ht = HyperTransformer(transformers)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transformers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">anonymize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtypes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transformers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">anonymize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtypes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">transformers</span> <span class="o">=</span> <span class="n">transformers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_transformers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">copy</span> <span class="o">=</span> <span class="n">copy</span>

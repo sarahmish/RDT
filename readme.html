@@ -318,17 +318,17 @@ data for you to play with.</p>
 </pre></div>
 </div>
 <p>This will return a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with 10 rows and 4 columns, one of each data type supported:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>   <span class="mi">0</span><span class="n">_int</span>    <span class="mi">1</span><span class="n">_float</span> <span class="mi">2</span><span class="n">_str</span>          <span class="mi">3</span><span class="n">_datetime</span>
-<span class="mi">0</span>   <span class="mi">38</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">46</span><span class="p">.</span><span class="mi">872441</span>     <span class="n">b</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span> <span class="mi">21</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">1</span>   <span class="mi">77</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">13</span><span class="p">.</span><span class="mi">150228</span>   <span class="n">NaN</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">19</span> <span class="mi">21</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">2</span>   <span class="mi">21</span><span class="p">.</span><span class="mi">0</span>        <span class="n">NaN</span>     <span class="n">b</span>                 <span class="n">NaT</span>
-<span class="mi">3</span>   <span class="mi">10</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">37</span><span class="p">.</span><span class="mi">128869</span>     <span class="k">c</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">15</span> <span class="mi">21</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">4</span>   <span class="mi">91</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">41</span><span class="p">.</span><span class="mi">341214</span>     <span class="n">a</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span> <span class="mi">11</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">5</span>   <span class="mi">67</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">92</span><span class="p">.</span><span class="mi">237335</span>     <span class="n">a</span>                 <span class="n">NaT</span>
-<span class="mi">6</span>    <span class="n">NaN</span>  <span class="mi">51</span><span class="p">.</span><span class="mi">598682</span>   <span class="n">NaN</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="mi">01</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">7</span>    <span class="n">NaN</span>  <span class="mi">42</span><span class="p">.</span><span class="mi">204396</span>     <span class="k">c</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">12</span> <span class="mi">22</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">8</span>   <span class="mi">68</span><span class="p">.</span><span class="mi">0</span>        <span class="n">NaN</span>     <span class="k">c</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">25</span> <span class="mi">16</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">9</span>    <span class="mi">7</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">31</span><span class="p">.</span><span class="mi">542918</span>     <span class="n">a</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">12</span> <span class="mi">03</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>   0_int    1_float 2_str          3_datetime
+0   38.0  46.872441     b 2021-02-10 21:50:00
+1   77.0  13.150228   NaN 2021-07-19 21:14:00
+2   21.0        NaN     b                 NaT
+3   10.0  37.128869     c 2019-10-15 21:39:00
+4   91.0  41.341214     a 2020-10-31 11:57:00
+5   67.0  92.237335     a                 NaT
+6    NaN  51.598682   NaN 2020-04-01 01:56:00
+7    NaN  42.204396     c 2020-03-12 22:12:00
+8   68.0        NaN     c 2021-02-25 16:04:00
+9    7.0  31.542918     a 2020-07-12 03:12:00
 </pre></div>
 </div>
 <p>Notice how the data is random, so your output might look a bit different. Also notice how
@@ -360,16 +360,16 @@ to get the transformed version of the data.</p>
 <p>The output will be a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> with two columns, one with the datetimes transformed
 to integer timestamps, and another one indicating with 1s which values were null in the
 original data.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nb">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">.</span><span class="mi">61299380</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">62672924</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">59919923</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">57117554</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">60414542</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">59919923</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">58570616</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">58405112</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">61426904</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">59452352</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00000000</span><span class="n">e</span><span class="o">+</span><span class="mi">00</span><span class="p">]])</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>array([[1.61299380e+18, 0.00000000e+00],
+       [1.62672924e+18, 0.00000000e+00],
+       [1.59919923e+18, 1.00000000e+00],
+       [1.57117554e+18, 0.00000000e+00],
+       [1.60414542e+18, 0.00000000e+00],
+       [1.59919923e+18, 1.00000000e+00],
+       [1.58570616e+18, 0.00000000e+00],
+       [1.58405112e+18, 0.00000000e+00],
+       [1.61426904e+18, 0.00000000e+00],
+       [1.59452352e+18, 0.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -382,17 +382,17 @@ the <code class="docutils literal notranslate"><span class="pre">reverse_transfo
 </div>
 <p>The output will be a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> containing the reverted values, which should be exactly
 like the original ones.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>   <span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span> <span class="mi">21</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">1</span>   <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">19</span> <span class="mi">21</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">2</span>                   <span class="n">NaT</span>
-<span class="mi">3</span>   <span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">15</span> <span class="mi">21</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">4</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span> <span class="mi">11</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">5</span>                   <span class="n">NaT</span>
-<span class="mi">6</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="mi">01</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">7</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">12</span> <span class="mi">22</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">8</span>   <span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">25</span> <span class="mi">16</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">9</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">12</span> <span class="mi">03</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">datetime64</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>0   2021-02-10 21:50:00
+1   2021-07-19 21:14:00
+2                   NaT
+3   2019-10-15 21:39:00
+4   2020-10-31 11:57:00
+5                   NaT
+6   2020-04-01 01:56:00
+7   2020-03-12 22:12:00
+8   2021-02-25 16:04:00
+9   2020-07-12 03:12:00
+dtype: datetime64[ns]
 </pre></div>
 </div>
 </div>
@@ -427,17 +427,17 @@ to get the transformed version of the data.</p>
 </div>
 <p>The output, will now be another <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the numerical representation of our
 data.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>    <span class="mi">0</span><span class="n">_int</span>  <span class="mi">0</span><span class="n">_int</span><span class="o">#</span><span class="mi">1</span>    <span class="mi">1</span><span class="n">_float</span>  <span class="mi">1</span><span class="n">_float</span><span class="o">#</span><span class="mi">1</span>  <span class="mi">2</span><span class="n">_str</span>    <span class="mi">3</span><span class="n">_datetime</span>  <span class="mi">3</span><span class="n">_datetime</span><span class="o">#</span><span class="mi">1</span>
-<span class="mi">0</span>  <span class="mi">38</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">46</span><span class="p">.</span><span class="mi">872441</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">70</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">612994</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">1</span>  <span class="mi">77</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">13</span><span class="p">.</span><span class="mi">150228</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">90</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">626729</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">2</span>  <span class="mi">21</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">44</span><span class="p">.</span><span class="mi">509511</span>        <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">70</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">599199</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">3</span>  <span class="mi">10</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">37</span><span class="p">.</span><span class="mi">128869</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">15</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">571176</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">4</span>  <span class="mi">91</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">41</span><span class="p">.</span><span class="mi">341214</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">45</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">604145</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">5</span>  <span class="mi">67</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">92</span><span class="p">.</span><span class="mi">237335</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">45</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">599199</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">6</span>  <span class="mi">47</span><span class="p">.</span><span class="mi">375</span>      <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">51</span><span class="p">.</span><span class="mi">598682</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">90</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">585706</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">7</span>  <span class="mi">47</span><span class="p">.</span><span class="mi">375</span>      <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">42</span><span class="p">.</span><span class="mi">204396</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">15</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">584051</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">8</span>  <span class="mi">68</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">44</span><span class="p">.</span><span class="mi">509511</span>        <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">15</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">614269</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-<span class="mi">9</span>   <span class="mi">7</span><span class="p">.</span><span class="mi">000</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">31</span><span class="p">.</span><span class="mi">542918</span>        <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">45</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">594524</span><span class="n">e</span><span class="o">+</span><span class="mi">18</span>           <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>    0_int  0_int#1    1_float  1_float#1  2_str    3_datetime  3_datetime#1
+0  38.000      0.0  46.872441        0.0   0.70  1.612994e+18           0.0
+1  77.000      0.0  13.150228        0.0   0.90  1.626729e+18           0.0
+2  21.000      0.0  44.509511        1.0   0.70  1.599199e+18           1.0
+3  10.000      0.0  37.128869        0.0   0.15  1.571176e+18           0.0
+4  91.000      0.0  41.341214        0.0   0.45  1.604145e+18           0.0
+5  67.000      0.0  92.237335        0.0   0.45  1.599199e+18           1.0
+6  47.375      1.0  51.598682        0.0   0.90  1.585706e+18           0.0
+7  47.375      1.0  42.204396        0.0   0.15  1.584051e+18           0.0
+8  68.000      0.0  44.509511        1.0   0.15  1.614269e+18           0.0
+9   7.000      0.0  31.542918        0.0   0.45  1.594524e+18           0.0
 </pre></div>
 </div>
 </div>
@@ -450,17 +450,17 @@ transformed data.</p>
 </pre></div>
 </div>
 <p>Which should output, again, a table that looks exactly like the original one.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>   <span class="mi">0</span><span class="n">_int</span>    <span class="mi">1</span><span class="n">_float</span> <span class="mi">2</span><span class="n">_str</span>          <span class="mi">3</span><span class="n">_datetime</span>
-<span class="mi">0</span>   <span class="mi">38</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">46</span><span class="p">.</span><span class="mi">872441</span>     <span class="n">b</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span> <span class="mi">21</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">1</span>   <span class="mi">77</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">13</span><span class="p">.</span><span class="mi">150228</span>   <span class="n">NaN</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">19</span> <span class="mi">21</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">2</span>   <span class="mi">21</span><span class="p">.</span><span class="mi">0</span>        <span class="n">NaN</span>     <span class="n">b</span>                 <span class="n">NaT</span>
-<span class="mi">3</span>   <span class="mi">10</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">37</span><span class="p">.</span><span class="mi">128869</span>     <span class="k">c</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">15</span> <span class="mi">21</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">4</span>   <span class="mi">91</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">41</span><span class="p">.</span><span class="mi">341214</span>     <span class="n">a</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">31</span> <span class="mi">11</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">5</span>   <span class="mi">67</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">92</span><span class="p">.</span><span class="mi">237335</span>     <span class="n">a</span>                 <span class="n">NaT</span>
-<span class="mi">6</span>    <span class="n">NaN</span>  <span class="mi">51</span><span class="p">.</span><span class="mi">598682</span>   <span class="n">NaN</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="mi">01</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">7</span>    <span class="n">NaN</span>  <span class="mi">42</span><span class="p">.</span><span class="mi">204396</span>     <span class="k">c</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">12</span> <span class="mi">22</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">8</span>   <span class="mi">68</span><span class="p">.</span><span class="mi">0</span>        <span class="n">NaN</span>     <span class="k">c</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">25</span> <span class="mi">16</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">00</span>
-<span class="mi">9</span>    <span class="mi">7</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">31</span><span class="p">.</span><span class="mi">542918</span>     <span class="n">a</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">12</span> <span class="mi">03</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>   0_int    1_float 2_str          3_datetime
+0   38.0  46.872441     b 2021-02-10 21:50:00
+1   77.0  13.150228   NaN 2021-07-19 21:14:00
+2   21.0        NaN     b                 NaT
+3   10.0  37.128869     c 2019-10-15 21:39:00
+4   91.0  41.341214     a 2020-10-31 11:57:00
+5   67.0  92.237335     a                 NaT
+6    NaN  51.598682   NaN 2020-04-01 01:56:00
+7    NaN  42.204396     c 2020-03-12 22:12:00
+8   68.0        NaN     c 2021-02-25 16:04:00
+9    7.0  31.542918     a 2020-07-12 03:12:00
 </pre></div>
 </div>
 </div>

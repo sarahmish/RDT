@@ -323,15 +323,15 @@ automatically. If not passed, the <code class="docutils literal notranslate"><sp
 <p class="rubric">Example</p>
 <p>Create a simple <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> instance that will decide which transformers
 to use based on the fit data <code class="docutils literal notranslate"><span class="pre">dtypes</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> passing a list of dtypes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">(</span><span class="n">dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;bool&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">(</span><span class="n">dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;bool&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> passing a <code class="docutils literal notranslate"><span class="pre">transformers</span></code> dict.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformers</span> <span class="o">=</span> <span class="p">{</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformers</span> <span class="o">=</span> <span class="p">{</span>
 <span class="gp">... </span>    <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">NumericalTransformer</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
 <span class="gp">... </span>    <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">{</span>
 <span class="gp">... </span>        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;NumericalTransformer&#39;</span><span class="p">,</span>

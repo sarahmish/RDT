@@ -233,7 +233,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="k">import</span> <span class="n">BaseTransformer</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="kn">import</span> <span class="n">BaseTransformer</span>
 
 <span class="n">IRREVERSIBLE_WARNING</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s1">&#39;Replacing nulls with existing value without `null_column`, which is not reversible. &#39;</span>
@@ -257,7 +257,7 @@
 <span class="sd">            Whether to create a copy of the input data or modify it destructively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fill_value</span> <span class="o">=</span> <span class="n">fill_value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span> <span class="o">=</span> <span class="n">null_column</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">copy</span> <span class="o">=</span> <span class="n">copy</span>

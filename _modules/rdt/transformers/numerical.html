@@ -231,8 +231,8 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="k">import</span> <span class="n">BaseTransformer</span>
-<span class="kn">from</span> <span class="nn">rdt.transformers.null</span> <span class="k">import</span> <span class="n">NullTransformer</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="kn">import</span> <span class="n">BaseTransformer</span>
+<span class="kn">from</span> <span class="nn">rdt.transformers.null</span> <span class="kn">import</span> <span class="n">NullTransformer</span>
 
 
 <div class="viewcode-block" id="NumericalTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.NumericalTransformer">[docs]</a><span class="k">class</span> <span class="nc">NumericalTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
@@ -263,7 +263,7 @@
 
     <span class="n">null_transformer</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">=</span> <span class="n">nan</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span> <span class="o">=</span> <span class="n">null_column</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
