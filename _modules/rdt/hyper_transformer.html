@@ -230,7 +230,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rdt.hyper_transformer</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">rdt.transformers</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">BooleanTransformer</span><span class="p">,</span> <span class="n">CategoricalTransformer</span><span class="p">,</span> <span class="n">DatetimeTransformer</span><span class="p">,</span> <span class="n">NumericalTransformer</span><span class="p">,</span>
@@ -423,7 +425,7 @@
 <span class="sd">            ValueError:</span>
 <span class="sd">                if no columns match.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(#[0-9]+)?$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(#[0-9]+)?$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">column_name</span><span class="p">))</span>
         <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex</span><span class="p">)]</span>
         <span class="k">if</span> <span class="n">columns</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No columns match_ </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name</span><span class="p">))</span>
