@@ -90,8 +90,6 @@
 <li class="toctree-l1"><a class="reference internal" href="#install">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-with-pip">Install with pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-from-source">Install from source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-for-development">Install for Development</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#quickstart">Quickstart</a><ul>
@@ -263,47 +261,19 @@ the transformations in order to revert them as needed.</p>
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p><strong>RDT</strong> has been developed and tested on <a class="reference external" href="https://www.python.org/downloads">Python 3.5, 3.6 and 3.7</a></p>
-<p>Also, although it is not strictly required, the usage of a
-<a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> is highly recommended in order to avoid
+<p><strong>RDT</strong> has been developed and tested on <a class="reference external" href="https://www.python.org/downloads/">Python 3.5 and 3.6, 3.7</a></p>
+<p>Also, although it is not strictly required, the usage of a <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> is highly recommended in order to avoid
 interfering with other software installed in the system where <strong>RDT</strong> is run.</p>
-<p>These are the minimum commands needed to create a virtualenv using python3.6 for <strong>RDT</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install virtualenv
-virtualenv -p <span class="k">$(</span>which python3.6<span class="k">)</span> rdt-venv
-</pre></div>
-</div>
-<p>Afterwards, you have to execute this command to have the virtualenv activated:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> rdt-venv/bin/activate
-</pre></div>
-</div>
-<p>Remember about executing it every time you start a new console to work on <strong>RDT</strong>!</p>
 </div>
 <div class="section" id="install-with-pip">
 <h2>Install with pip<a class="headerlink" href="#install-with-pip" title="Permalink to this headline">¶</a></h2>
-<p>After creating the virtualenv and activating it, we recommend using
-<a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a> in order to install <strong>RDT</strong>:</p>
+<p>The easiest and recommended way to install <strong>RDT</strong> is using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install rdt
 </pre></div>
 </div>
 <p>This will pull and install the latest stable release from <a class="reference external" href="https://pypi.org/">PyPi</a>.</p>
-</div>
-<div class="section" id="install-from-source">
-<h2>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
-<p>With your virtualenv activated, you can clone the repository and install it from
-source by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> on the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:sdv-dev/RDT.git
-<span class="nb">cd</span> RDT
-git checkout stable
-make install
-</pre></div>
-</div>
-</div>
-<div class="section" id="install-for-development">
-<h2>Install for Development<a class="headerlink" href="#install-for-development" title="Permalink to this headline">¶</a></h2>
-<p>If you want to contribute to the project, a few more steps are required to make the project ready
-for development.</p>
-<p>Please head to the <a class="reference external" href="https://sdv-dev.github.io/RDT/contributing.html#get-started">Contributing Guide</a>
-for more details about this process.</p>
+<p>If you want to install from source or contribute to the project please read the
+<a class="reference external" href="https://sdv-dev.github.io/RDT/contributing.html#get-started">Contributing Guide</a>.</p>
 </div>
 </div>
 <div class="section" id="quickstart">
@@ -318,7 +288,7 @@ a single column loaded as a <code class="docutils literal notranslate"><span cla
 <h3>1. Load the demo data<a class="headerlink" href="#load-the-demo-data" title="Permalink to this headline">¶</a></h3>
 <p>You can load some demo data using the <code class="docutils literal notranslate"><span class="pre">rdt.get_demo</span></code> function, which will return some random
 data for you to play with.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt</span> <span class="kn">import</span> <span class="n">get_demo</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt</span> <span class="kn">import</span> <span class="n">get_demo</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">get_demo</span><span class="p">()</span>
 </pre></div>
@@ -343,7 +313,8 @@ RDT introduced some null values randomly.</p>
 <div class="section" id="load-the-transformer">
 <h3>2. Load the transformer<a class="headerlink" href="#load-the-transformer" title="Permalink to this headline">¶</a></h3>
 <p>In this example we will use the datetime column, so let’s load a <code class="docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt.transformers</span> <span class="kn">import</span> <span class="n">DatetimeTransformer</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt.transformers</span> <span class="kn">import</span> <span class="n">DatetimeTransformer</span>
+
 <span class="n">transformer</span> <span class="o">=</span> <span class="n">DatetimeTransformer</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -352,7 +323,7 @@ RDT introduced some null values randomly.</p>
 <h3>3. Fit the Transformer<a class="headerlink" href="#fit-the-transformer" title="Permalink to this headline">¶</a></h3>
 <p>Before being able to transform the data, we need the transformer to learn from it.</p>
 <p>We will do this by calling its <code class="docutils literal notranslate"><span class="pre">fit</span></code> method passing the column that we want to transform.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;3_datetime&#39;</span><span class="p">])</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;3_datetime&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -360,7 +331,7 @@ RDT introduced some null values randomly.</p>
 <h3>4. Transform the data<a class="headerlink" href="#transform-the-data" title="Permalink to this headline">¶</a></h3>
 <p>Once the transformer is fitted, we can pass the data again to its <code class="docutils literal notranslate"><span class="pre">transform</span></code> method in order
 to get the transformed version of the data.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;3_datetime&#39;</span><span class="p">])</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;3_datetime&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The output will be a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> with two columns, one with the datetimes transformed
@@ -383,7 +354,7 @@ original data.</p>
 <h3>5. Revert the column transformation<a class="headerlink" href="#revert-the-column-transformation" title="Permalink to this headline">¶</a></h3>
 <p>In order to revert the previous transformation, the transformed data can be passed to
 the <code class="docutils literal notranslate"><span class="pre">reverse_transform</span></code> method of the transformer:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reversed_data</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">reversed_data</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output will be a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> containing the reverted values, which should be exactly
@@ -410,7 +381,8 @@ a table with multiple columns.</p>
 <div class="section" id="load-the-hypertransformer">
 <h3>1. Load the HyperTransformer<a class="headerlink" href="#load-the-hypertransformer" title="Permalink to this headline">¶</a></h3>
 <p>In order to manuipulate a complete table we will need to load a <code class="docutils literal notranslate"><span class="pre">rdt.HyperTransformer</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt</span> <span class="kn">import</span> <span class="n">HyperTransformer</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rdt</span> <span class="kn">import</span> <span class="n">HyperTransformer</span>
+
 <span class="n">ht</span> <span class="o">=</span> <span class="n">HyperTransformer</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -420,7 +392,7 @@ a table with multiple columns.</p>
 <p>Just like the transfomer, the HyperTransformer needs to be fitted before being able to transform
 data.</p>
 <p>This is done by calling its <code class="docutils literal notranslate"><span class="pre">fit</span></code> method passing the <code class="docutils literal notranslate"><span class="pre">data</span></code> DataFrame.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">ht</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -428,7 +400,7 @@ data.</p>
 <h3>3. Transform the table data<a class="headerlink" href="#transform-the-table-data" title="Permalink to this headline">¶</a></h3>
 <p>Once the HyperTransformer is fitted, we can pass the data again to its <code class="docutils literal notranslate"><span class="pre">transform</span></code> method in order
 to get the transformed version of the data.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformed</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">transformed</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output, will now be another <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the numerical representation of our
@@ -452,7 +424,7 @@ data.</p>
 <p>In order to revert the transformation and recover the original data from the transformed one,
 we need to call <code class="docutils literal notranslate"><span class="pre">reverse_transform</span></code> method of the <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> instance passing it the
 transformed data.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reversed_data</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">reversed_data</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Which should output, again, a table that looks exactly like the original one.</p>
