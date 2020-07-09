@@ -271,7 +271,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.BooleanTransformer" title="rdt.transformers.BooleanTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BooleanTransformer</span></code></a>([nan, null_column])</p></td>
 <td><p>Transformer for boolean data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.CategoricalTransformer" title="rdt.transformers.CategoricalTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code></a>([anonymize])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.CategoricalTransformer" title="rdt.transformers.CategoricalTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code></a>([anonymize, fuzzy, clip])</p></td>
 <td><p>Transformer for categorical data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.DatetimeTransformer" title="rdt.transformers.DatetimeTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code></a>([nan, null_column])</p></td>
@@ -282,6 +282,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.NullTransformer" title="rdt.transformers.NullTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullTransformer</span></code></a>(fill_value[, null_column, copy])</p></td>
 <td><p>Transformer for null data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.OneHotEncodingTransformer" title="rdt.transformers.OneHotEncodingTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OneHotEncodingTransformer</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.LabelEncodingTransformer" title="rdt.transformers.LabelEncodingTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LabelEncodingTransformer</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -467,7 +473,7 @@ representations as float values.</p>
 
 <dl class="class">
 <dt id="rdt.transformers.CategoricalTransformer">
-<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.</code><code class="sig-name descname">CategoricalTransformer</code><span class="sig-paren">(</span><em class="sig-param">anonymize=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#CategoricalTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CategoricalTransformer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.</code><code class="sig-name descname">CategoricalTransformer</code><span class="sig-paren">(</span><em class="sig-param">anonymize=False</em>, <em class="sig-param">fuzzy=False</em>, <em class="sig-param">clip=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#CategoricalTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.CategoricalTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rdt.transformers.base.html#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.base.BaseTransformer</span></code></a></p>
 <p>Transformer for categorical data.</p>
 <p>This transformer computes a float representative for each one of the categories
@@ -481,7 +487,13 @@ corresponds to the interval it falls int.</p>
 <p>Null values are considered just another category.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>anonymize</strong> (<em>str</em><em>, </em><em>tuple</em><em> or </em><em>list</em>) – Anonymization category. <code class="docutils literal notranslate"><span class="pre">None</span></code> disables anonymization. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>anonymize</strong> (<em>str</em><em>, </em><em>tuple</em><em> or </em><em>list</em>) – Anonymization category. <code class="docutils literal notranslate"><span class="pre">None</span></code> disables anonymization. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>fuzzy</strong> (<em>bool</em>) – Whether to generate gassian noise around the class representative of each interval
+or just use the mean for all the replaced values. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>clip</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, clip the values to [0, 1]. Otherwise normalize them using modulo 1.
+Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
 </dd>
 </dl>
 <p><strong>Methods</strong></p>
@@ -515,6 +527,11 @@ Finaly, compute the intervals for each categorical value.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="rdt.transformers.CategoricalTransformer.intervals">
+<code class="sig-name descname">intervals</code><em class="property"> = None</em><a class="headerlink" href="#rdt.transformers.CategoricalTransformer.intervals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="rdt.transformers.CategoricalTransformer.mapping">
@@ -812,6 +829,144 @@ data.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.OneHotEncodingTransformer">
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.</code><code class="sig-name descname">OneHotEncodingTransformer</code><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#OneHotEncodingTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.OneHotEncodingTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rdt.transformers.base.html#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.base.BaseTransformer</span></code></a></p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.OneHotEncodingTransformer.fit" title="rdt.transformers.OneHotEncodingTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<td><p>Fit the transformer to the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.OneHotEncodingTransformer.reverse_transform" title="rdt.transformers.OneHotEncodingTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
+<td><p>Revert the transformations to the original values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.OneHotEncodingTransformer.transform" title="rdt.transformers.OneHotEncodingTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform the data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rdt.transformers.OneHotEncodingTransformer.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#OneHotEncodingTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.OneHotEncodingTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformer to the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.OneHotEncodingTransformer.reverse_transform">
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#OneHotEncodingTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.OneHotEncodingTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revert the transformations to the original values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Reverted data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.OneHotEncodingTransformer.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#OneHotEncodingTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.OneHotEncodingTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Transformed data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.LabelEncodingTransformer">
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.</code><code class="sig-name descname">LabelEncodingTransformer</code><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#LabelEncodingTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.LabelEncodingTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rdt.transformers.base.html#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.base.BaseTransformer</span></code></a></p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.LabelEncodingTransformer.fit" title="rdt.transformers.LabelEncodingTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<td><p>Fit the transformer to the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.LabelEncodingTransformer.reverse_transform" title="rdt.transformers.LabelEncodingTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
+<td><p>Revert the transformations to the original values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.LabelEncodingTransformer.transform" title="rdt.transformers.LabelEncodingTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform the data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rdt.transformers.LabelEncodingTransformer.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#LabelEncodingTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.LabelEncodingTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformer to the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.LabelEncodingTransformer.reverse_transform">
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#LabelEncodingTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.LabelEncodingTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revert the transformations to the original values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Reverted data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.LabelEncodingTransformer.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/categorical.html#LabelEncodingTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.LabelEncodingTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.array</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Transformed data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
 </dd>
 </dl>
 </dd></dl>
