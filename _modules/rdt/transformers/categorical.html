@@ -235,7 +235,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rdt.transformers.categorical</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="sd">&quot;&quot;&quot;Transformers for categorical data.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Faker</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -374,12 +376,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">intervals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_intervals</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the value that represents this category&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Get the value that represents this category.&quot;&quot;&quot;</span>
         <span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intervals</span><span class="p">[</span><span class="n">category</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fuzzy</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">mean</span>
+
+        <span class="k">return</span> <span class="n">mean</span>
 
 <div class="viewcode-block" id="CategoricalTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.CategoricalTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Transform categorical values to float values.</span>
@@ -446,30 +448,114 @@
 
 
 <div class="viewcode-block" id="OneHotEncodingTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.OneHotEncodingTransformer">[docs]</a><span class="k">class</span> <span class="nc">OneHotEncodingTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;OneHotEncoding for categorical data.</span>
+
+<span class="sd">    This transformer replaces a single vector with N unique categories in it</span>
+<span class="sd">    with N vectors which have 1s on the rows where the corresponding category</span>
+<span class="sd">    is found and 0s on the rest.</span>
+
+<span class="sd">    Null values are considered just another category.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">dummies</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="OneHotEncodingTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.OneHotEncodingTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the transformer to the data.</span>
+
+<span class="sd">        Get the pandas `dummies` which will be used later on for OneHotEncoding.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to fit the transformer to.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="OneHotEncodingTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.OneHotEncodingTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replace each category with the OneHot vectors.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to transform.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            numpy.ndarray:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dummies</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dummies</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="OneHotEncodingTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.OneHotEncodingTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert float values back to the original categorical values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (numpy.ndarray):</span>
+<span class="sd">                Data to revert.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.Series</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dummies</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="LabelEncodingTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.LabelEncodingTransformer">[docs]</a><span class="k">class</span> <span class="nc">LabelEncodingTransformer</span><span class="p">(</span><span class="n">BaseTransformer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;LabelEncoding for categorical data.</span>
+
+<span class="sd">    This transformer generates a unique integer representation for each category</span>
+<span class="sd">    and simply replaces each category with its integer value.</span>
+
+<span class="sd">    Null values are considered just another category.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        values_to_categories (dict):</span>
+<span class="sd">            Dictionary that maps each integer value for its category.</span>
+<span class="sd">        categories_to_values (dict):</span>
+<span class="sd">            Dictionary that maps each category with the corresponding</span>
+<span class="sd">            integer value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">values_to_categories</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">categories_to_values</span> <span class="o">=</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="LabelEncodingTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.LabelEncodingTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+        <span class="sd">&quot;&quot;&quot;Fit the transformer to the data.</span>
+
+<span class="sd">        Generate a unique integer representation for each category and</span>
+<span class="sd">        store them in the `categories_to_values` dict and its reverse</span>
+<span class="sd">        `values_to_categories`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to fit the transformer to.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values_to_categories</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">categories_to_values</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">category</span><span class="p">:</span> <span class="n">value</span>
+            <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values_to_categories</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span></div>
 
 <div class="viewcode-block" id="LabelEncodingTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.LabelEncodingTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span></div>
+        <span class="sd">&quot;&quot;&quot;Replace each category with its corresponding integer value.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to transform.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            numpy.ndarray:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categories_to_values</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="LabelEncodingTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.categorical.html#rdt.transformers.LabelEncodingTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span></div></div>
+        <span class="sd">&quot;&quot;&quot;Convert float values back to the original categorical values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (numpy.ndarray):</span>
+<span class="sd">                Data to revert.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.Series</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values_to_categories</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

@@ -235,7 +235,10 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rdt.transformers.base</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="BaseTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer">[docs]</a><span></span><span class="k">class</span> <span class="nc">BaseTransformer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span></span><span class="sd">&quot;&quot;&quot;BaseTransformer module.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="BaseTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer">[docs]</a><span class="k">class</span> <span class="nc">BaseTransformer</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Base class for all transformers.</span>
 
 <span class="sd">    The ``BaseTransformer`` class contains methods that must be implemented</span>
@@ -250,7 +253,7 @@
 <span class="sd">            data (pandas.Series or numpy.array):</span>
 <span class="sd">                Data to transform.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="BaseTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Transform the data.</span>
@@ -263,7 +266,7 @@
 <span class="sd">            numpy.array:</span>
 <span class="sd">                Transformed data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="BaseTransformer.fit_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.base.html#rdt.transformers.BaseTransformer.fit_transform">[docs]</a>    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the transformer to the data and then transform it.</span>
@@ -290,7 +293,7 @@
 <span class="sd">            pandas.Series:</span>
 <span class="sd">                Reverted data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div></div>
 </pre></div>
 
            </div>

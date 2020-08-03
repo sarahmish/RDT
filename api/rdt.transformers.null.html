@@ -246,6 +246,7 @@
             
   <div class="section" id="module-rdt.transformers.null">
 <span id="rdt-transformers-null-module"></span><h1>rdt.transformers.null module<a class="headerlink" href="#module-rdt.transformers.null" title="Permalink to this headline">¶</a></h1>
+<p>Transformer for data that contains Null values.</p>
 <p><strong>Classes</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -254,7 +255,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.null.NullTransformer" title="rdt.transformers.null.NullTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullTransformer</span></code></a>(fill_value[, null_column, copy])</p></td>
-<td><p>Transformer for null data.</p></td>
+<td><p>Transformer for data that contains Null values.</p></td>
 </tr>
 </tbody>
 </table>
@@ -262,7 +263,7 @@
 <dt id="rdt.transformers.null.NullTransformer">
 <em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.null.</code><code class="sig-name descname">NullTransformer</code><span class="sig-paren">(</span><em class="sig-param">fill_value</em>, <em class="sig-param">null_column=None</em>, <em class="sig-param">copy=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/null.html#NullTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.null.NullTransformer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rdt.transformers.base.html#rdt.transformers.base.BaseTransformer" title="rdt.transformers.base.BaseTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.base.BaseTransformer</span></code></a></p>
-<p>Transformer for null data.</p>
+<p>Transformer for data that contains Null values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -305,6 +306,11 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="rdt.transformers.null.NullTransformer.nulls">
+<code class="sig-name descname">nulls</code><em class="property"> = None</em><a class="headerlink" href="#rdt.transformers.null.NullTransformer.nulls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="rdt.transformers.null.NullTransformer.reverse_transform">

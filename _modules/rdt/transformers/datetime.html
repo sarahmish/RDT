@@ -235,7 +235,8 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rdt.transformers.datetime</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="sd">&quot;&quot;&quot;Transformer for datetime data.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="kn">import</span> <span class="n">BaseTransformer</span>
@@ -290,16 +291,8 @@
             <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
         <span class="n">transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
-            <span class="n">fill_value</span> <span class="o">=</span> <span class="n">transformed</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="s1">&#39;mode&#39;</span><span class="p">:</span>
-            <span class="n">fill_value</span> <span class="o">=</span> <span class="n">transformed</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">fill_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="n">fill_value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">transformed</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DatetimeTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.datetime.html#rdt.transformers.DatetimeTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Transform datetime values to float values.</span>
