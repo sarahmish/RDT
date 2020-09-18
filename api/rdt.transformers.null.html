@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.null module &mdash; RDT 0.2.4 documentation</title>
+  <title>rdt.transformers.null module &mdash; RDT 0.2.5 documentation</title>
   
 
   
@@ -110,7 +110,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul class="current">
@@ -151,31 +150,35 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.2.4 - 2020-08-08</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.2.5 - 2020-09-18</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html#bugs-fixed">Bugs Fixed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id6">0.2.4 - 2020-08-08</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#general-improvements">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id4">0.2.3 - 2020-07-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id6">0.2.2 - 2020-06-26</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../history.html#bugs-fixed">Bugs Fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id9">0.2.3 - 2020-07-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id11">0.2.2 - 2020-06-26</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../history.html#id12">Bugs Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id8">0.2.1 - 2020-01-17</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../history.html#id9">Bugs Fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id14">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../history.html#id15">Bugs Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id11">0.2.0 - 2019-10-15</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id17">0.2.0 - 2019-10-15</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#issues">Issues</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id14">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id20">0.1.3 - 2019-09-24</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../history.html#id16">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../history.html#id22">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id23">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id24">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id25">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id29">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id30">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id31">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -251,14 +254,17 @@
   <div class="section" id="module-rdt.transformers.null">
 <span id="rdt-transformers-null-module"></span><h1>rdt.transformers.null module<a class="headerlink" href="#module-rdt.transformers.null" title="Permalink to this headline">¶</a></h1>
 <p>Transformer for data that contains Null values.</p>
-<p><strong>Classes</strong></p>
+<p><strong>Classes:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.null.NullTransformer" title="rdt.transformers.null.NullTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullTransformer</span></code></a>(fill_value[, null_column, copy])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTransformer</span></code></p></td>
+<td><p>Base class for all transformers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.null.NullTransformer" title="rdt.transformers.null.NullTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullTransformer</span></code></a>(fill_value[, null_column, copy])</p></td>
 <td><p>Transformer for data that contains Null values.</p></td>
 </tr>
 </tbody>
@@ -281,7 +287,7 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 </ul>
 </dd>
 </dl>
-<p><strong>Methods</strong></p>
+<p><strong>Methods:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -296,6 +302,18 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.null.NullTransformer.transform" title="rdt.transformers.null.NullTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
 <td><p>Replace null values with the indicated fill_value.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.null.NullTransformer.nulls" title="rdt.transformers.null.NullTransformer.nulls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nulls</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
