@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; RDT 0.2.5 documentation</title>
+  <title>Index &mdash; RDT 0.2.6 documentation</title>
   
 
   
@@ -28,6 +28,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -149,35 +150,36 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.2.5 - 2020-09-18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id1">0.2.6 - 2020-10-05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id4">0.2.5 - 2020-09-18</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="history.html#bugs-fixed">Bugs Fixed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id6">0.2.4 - 2020-08-08</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id9">0.2.4 - 2020-08-08</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="history.html#general-improvements">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id9">0.2.3 - 2020-07-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id11">0.2.2 - 2020-06-26</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="history.html#id12">Bugs Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id14">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id12">0.2.3 - 2020-07-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id14">0.2.2 - 2020-06-26</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="history.html#id15">Bugs Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id17">0.2.0 - 2019-10-15</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id17">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="history.html#id18">Bugs Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id20">0.2.0 - 2019-10-15</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="history.html#issues">Issues</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id20">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id23">0.1.3 - 2019-09-24</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="history.html#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="history.html#id22">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="history.html#id25">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id29">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id30">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="history.html#id31">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id32">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id33">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html#id34">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -254,6 +256,7 @@
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
@@ -365,11 +368,15 @@
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.fit">(rdt.transformers.DatetimeTransformer method)</a>
 </li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.GaussianCopulaTransformer.fit">(rdt.transformers.GaussianCopulaTransformer method)</a>
+</li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.LabelEncodingTransformer.fit">(rdt.transformers.LabelEncodingTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.fit">(rdt.transformers.null.NullTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.fit">(rdt.transformers.NullTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.GaussianCopulaTransformer.fit">(rdt.transformers.numerical.GaussianCopulaTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.fit">(rdt.transformers.numerical.NumericalTransformer method)</a>
 </li>
@@ -388,6 +395,18 @@
         <li><a href="api/rdt.transformers.base.html#rdt.transformers.base.BaseTransformer.fit_transform">(rdt.transformers.base.BaseTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.BaseTransformer.fit_transform">(rdt.transformers.BaseTransformer method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/rdt.transformers.html#rdt.transformers.GaussianCopulaTransformer">GaussianCopulaTransformer (class in rdt.transformers)</a>
+
+      <ul>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.GaussianCopulaTransformer">(class in rdt.transformers.numerical)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -539,11 +558,15 @@
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.reverse_transform">(rdt.transformers.DatetimeTransformer method)</a>
 </li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.GaussianCopulaTransformer.reverse_transform">(rdt.transformers.GaussianCopulaTransformer method)</a>
+</li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.LabelEncodingTransformer.reverse_transform">(rdt.transformers.LabelEncodingTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.reverse_transform">(rdt.transformers.null.NullTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.reverse_transform">(rdt.transformers.NullTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.GaussianCopulaTransformer.reverse_transform">(rdt.transformers.numerical.GaussianCopulaTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.reverse_transform">(rdt.transformers.numerical.NumericalTransformer method)</a>
 </li>
@@ -583,11 +606,15 @@
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.DatetimeTransformer.transform">(rdt.transformers.DatetimeTransformer method)</a>
 </li>
+        <li><a href="api/rdt.transformers.html#rdt.transformers.GaussianCopulaTransformer.transform">(rdt.transformers.GaussianCopulaTransformer method)</a>
+</li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.LabelEncodingTransformer.transform">(rdt.transformers.LabelEncodingTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.null.html#rdt.transformers.null.NullTransformer.transform">(rdt.transformers.null.NullTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.html#rdt.transformers.NullTransformer.transform">(rdt.transformers.NullTransformer method)</a>
+</li>
+        <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.GaussianCopulaTransformer.transform">(rdt.transformers.numerical.GaussianCopulaTransformer method)</a>
 </li>
         <li><a href="api/rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer.transform">(rdt.transformers.numerical.NumericalTransformer method)</a>
 </li>

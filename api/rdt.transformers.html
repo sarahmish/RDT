@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers package &mdash; RDT 0.2.5 documentation</title>
+  <title>rdt.transformers package &mdash; RDT 0.2.6 documentation</title>
   
 
   
@@ -27,6 +27,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -150,35 +151,36 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.2.5 - 2020-09-18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id1">0.2.6 - 2020-10-05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id4">0.2.5 - 2020-09-18</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html#bugs-fixed">Bugs Fixed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id6">0.2.4 - 2020-08-08</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id9">0.2.4 - 2020-08-08</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#general-improvements">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id9">0.2.3 - 2020-07-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id11">0.2.2 - 2020-06-26</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../history.html#id12">Bugs Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id14">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id12">0.2.3 - 2020-07-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id14">0.2.2 - 2020-06-26</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#id15">Bugs Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id17">0.2.0 - 2019-10-15</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id17">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../history.html#id18">Bugs Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id20">0.2.0 - 2019-10-15</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#issues">Issues</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id20">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id23">0.1.3 - 2019-09-24</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../history.html#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../history.html#id22">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../history.html#id25">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id29">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id30">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../history.html#id31">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id32">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id33">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#id34">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -286,16 +288,19 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.DatetimeTransformer" title="rdt.transformers.DatetimeTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code></a>([nan, null_column])</p></td>
 <td><p>Transformer for datetime data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.NumericalTransformer" title="rdt.transformers.NumericalTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalTransformer</span></code></a>([dtype, nan, null_column])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.GaussianCopulaTransformer" title="rdt.transformers.GaussianCopulaTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopulaTransformer</span></code></a>([dtype, nan, …])</p></td>
+<td><p>Transformer for numerical data based on copulas transformation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.NumericalTransformer" title="rdt.transformers.NumericalTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumericalTransformer</span></code></a>([dtype, nan, null_column])</p></td>
 <td><p>Transformer for numerical data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.NullTransformer" title="rdt.transformers.NullTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullTransformer</span></code></a>(fill_value[, null_column, copy])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.NullTransformer" title="rdt.transformers.NullTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullTransformer</span></code></a>(fill_value[, null_column, copy])</p></td>
 <td><p>Transformer for data that contains Null values.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.OneHotEncodingTransformer" title="rdt.transformers.OneHotEncodingTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OneHotEncodingTransformer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.OneHotEncodingTransformer" title="rdt.transformers.OneHotEncodingTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OneHotEncodingTransformer</span></code></a></p></td>
 <td><p>OneHotEncoding for categorical data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.LabelEncodingTransformer" title="rdt.transformers.LabelEncodingTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LabelEncodingTransformer</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.LabelEncodingTransformer" title="rdt.transformers.LabelEncodingTransformer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LabelEncodingTransformer</span></code></a></p></td>
 <td><p>LabelEncoding for categorical data.</p></td>
 </tr>
 </tbody>
@@ -706,6 +711,129 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">None</s
 <dt id="rdt.transformers.DatetimeTransformer.transform">
 <code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/datetime.html#DatetimeTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.DatetimeTransformer.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform datetime values to float values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rdt.transformers.GaussianCopulaTransformer">
+<em class="property">class </em><code class="sig-prename descclassname">rdt.transformers.</code><code class="sig-name descname">GaussianCopulaTransformer</code><span class="sig-paren">(</span><em class="sig-param">dtype=None</em>, <em class="sig-param">nan='mean'</em>, <em class="sig-param">null_column=None</em>, <em class="sig-param">distribution='parametric'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#GaussianCopulaTransformer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.GaussianCopulaTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rdt.transformers.numerical.html#rdt.transformers.numerical.NumericalTransformer" title="rdt.transformers.numerical.NumericalTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">rdt.transformers.numerical.NumericalTransformer</span></code></a></p>
+<p>Transformer for numerical data based on copulas transformation.</p>
+<p>Transformation consists on bringing the input data to a standard normal space
+by using a combination of <em>cdf</em> and <em>inverse cdf</em> transformations:</p>
+<p>Given a variable <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<ul class="simple">
+<li><p>Find the best possible marginal or use user specified one, <span class="math notranslate nohighlight">\(P(x)\)</span>.</p></li>
+<li><p>do <span class="math notranslate nohighlight">\(u = \phi (x)\)</span> where <span class="math notranslate nohighlight">\(\phi\)</span> is cumulative density function,
+given <span class="math notranslate nohighlight">\(P(x)\)</span>.</p></li>
+<li><p>do <span class="math notranslate nohighlight">\(z = \phi_{N(0,1)}^{-1}(u)\)</span>, where <span class="math notranslate nohighlight">\(\phi_{N(0,1)}^{-1}\)</span> is
+the <em>inverse cdf</em> of a <em>standard normal</em> distribution.</p></li>
+</ul>
+<p>The reverse transform will do the inverse of the steps above and go from <span class="math notranslate nohighlight">\(z\)</span>
+to <span class="math notranslate nohighlight">\(u\)</span> and then to <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dtype</strong> (<em>data type</em>) – Data type of the data to transform. It will be used when reversing the
+transformation. If not provided, the dtype of the fit data will be used.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>nan</strong> (<em>int</em><em>, </em><em>str</em><em> or </em><em>None</em>) – Indicate what to do with the null values. If an integer is given, replace them
+with the given value. If the strings <code class="docutils literal notranslate"><span class="pre">'mean'</span></code> or <code class="docutils literal notranslate"><span class="pre">'mode'</span></code> are given, replace
+them with the corresponding aggregation. If <code class="docutils literal notranslate"><span class="pre">None</span></code> is given, do not replace them.
+Defaults to <code class="docutils literal notranslate"><span class="pre">'mean'</span></code>.</p></li>
+<li><p><strong>null_column</strong> (<em>bool</em>) – Whether to create a new column to indicate which values were null or not.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, only create a new column when the data contains null values.
+If <code class="docutils literal notranslate"><span class="pre">True</span></code>, always create the new column whether there are null values or not.
+If <code class="docutils literal notranslate"><span class="pre">False</span></code>, do not create the new column.
+Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>distribution</strong> (<em>copulas.univariate.Univariate</em><em> or </em><em>str</em>) – <p>Copulas univariate distribution to use. Defaults to <code class="docutils literal notranslate"><span class="pre">parametric</span></code>. To choose from:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">univariate</span></code>: Let <code class="docutils literal notranslate"><span class="pre">copulas</span></code> select the optimal univariate distribution.
+This may result in non-parametric models being used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parametric</span></code>: Let <code class="docutils literal notranslate"><span class="pre">copulas</span></code> select the optimal univariate distribution,
+but restrict the selection to parametric distributions only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounded</span></code>: Let <code class="docutils literal notranslate"><span class="pre">copulas</span></code> select the optimal univariate distribution,
+but restrict the selection to bounded distributions only.
+This may result in non-parametric models being used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">semi_bounded</span></code>: Let <code class="docutils literal notranslate"><span class="pre">copulas</span></code> select the optimal univariate distribution,
+but restrict the selection to semi-bounded distributions only.
+This may result in non-parametric models being used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parametric_bounded</span></code>: Let <code class="docutils literal notranslate"><span class="pre">copulas</span></code> select the optimal univariate
+distribution, but restrict the selection to parametric and bounded distributions
+only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parametric_semi_bounded</span></code>: Let <code class="docutils literal notranslate"><span class="pre">copulas</span></code> select the optimal univariate
+distribution, but restrict the selection to parametric and semi-bounded
+distributions only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gaussian</span></code>: Use a Gaussian distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gamma</span></code>: Use a Gamma distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: Use a Beta distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">student_t</span></code>: Use a Student T distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gussian_kde</span></code>: Use a GaussianKDE distribution. This model is non-parametric,
+so using this will make <code class="docutils literal notranslate"><span class="pre">get_parameters</span></code> unusable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">truncated_gaussian</span></code>: Use a Truncated Gaussian distribution.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.GaussianCopulaTransformer.fit" title="rdt.transformers.GaussianCopulaTransformer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
+<td><p>Fit the transformer to the data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rdt.transformers.GaussianCopulaTransformer.reverse_transform" title="rdt.transformers.GaussianCopulaTransformer.reverse_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse_transform</span></code></a>(data)</p></td>
+<td><p>Convert data back into the original format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rdt.transformers.GaussianCopulaTransformer.transform" title="rdt.transformers.GaussianCopulaTransformer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a>(data)</p></td>
+<td><p>Transform numerical data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="rdt.transformers.GaussianCopulaTransformer.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#GaussianCopulaTransformer.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.GaussianCopulaTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the transformer to the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to fit to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.GaussianCopulaTransformer.reverse_transform">
+<code class="sig-name descname">reverse_transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#GaussianCopulaTransformer.reverse_transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.GaussianCopulaTransformer.reverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert data back into the original format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>numpy.ndarray</em>) – Data to transform.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>pandas.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rdt.transformers.GaussianCopulaTransformer.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rdt/transformers/numerical.html#GaussianCopulaTransformer.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rdt.transformers.GaussianCopulaTransformer.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform numerical data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>data</strong> (<em>pandas.Series</em><em> or </em><em>numpy.ndarray</em>) – Data to transform.</p>

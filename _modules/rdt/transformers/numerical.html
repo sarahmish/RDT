@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rdt.transformers.numerical &mdash; RDT 0.2.5 documentation</title>
+  <title>rdt.transformers.numerical &mdash; RDT 0.2.6 documentation</title>
   
 
   
@@ -27,6 +27,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -148,35 +149,36 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id1">0.2.5 - 2020-09-18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id1">0.2.6 - 2020-10-05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id4">0.2.5 - 2020-09-18</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html#bugs-fixed">Bugs Fixed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id6">0.2.4 - 2020-08-08</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id9">0.2.4 - 2020-08-08</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../history.html#general-improvements">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id9">0.2.3 - 2020-07-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id11">0.2.2 - 2020-06-26</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../history.html#id12">Bugs Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id14">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id12">0.2.3 - 2020-07-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id14">0.2.2 - 2020-06-26</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../history.html#id15">Bugs Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id17">0.2.0 - 2019-10-15</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id17">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../history.html#id18">Bugs Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id20">0.2.0 - 2019-10-15</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../history.html#issues">Issues</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id20">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id23">0.1.3 - 2019-09-24</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../history.html#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../history.html#id22">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../history.html#id25">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id29">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id30">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id31">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id32">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id33">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../history.html#id34">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -242,10 +244,14 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rdt.transformers.numerical</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Transformer for numerical data.&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Transformers for numerical data.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">copulas</span> <span class="kn">import</span> <span class="n">EPSILON</span><span class="p">,</span> <span class="n">univariate</span>
 
 <span class="kn">from</span> <span class="nn">rdt.transformers.base</span> <span class="kn">import</span> <span class="n">BaseTransformer</span>
 <span class="kn">from</span> <span class="nn">rdt.transformers.null</span> <span class="kn">import</span> <span class="n">NullTransformer</span>
@@ -296,7 +302,7 @@
             <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span> <span class="o">=</span> <span class="n">NullTransformer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_column</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="NumericalTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.NumericalTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -330,11 +336,193 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_transformer</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">:</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span><span class="p">)</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;i&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span><span class="p">)</span>
+
+            <span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">data</span>
 
         <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dtype</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="GaussianCopulaTransformer"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.GaussianCopulaTransformer">[docs]</a><span class="k">class</span> <span class="nc">GaussianCopulaTransformer</span><span class="p">(</span><span class="n">NumericalTransformer</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Transformer for numerical data based on copulas transformation.</span>
+
+<span class="sd">    Transformation consists on bringing the input data to a standard normal space</span>
+<span class="sd">    by using a combination of *cdf* and *inverse cdf* transformations:</span>
+
+<span class="sd">    Given a variable :math:`x`:</span>
+
+<span class="sd">    - Find the best possible marginal or use user specified one, :math:`P(x)`.</span>
+<span class="sd">    - do :math:`u = \phi (x)` where :math:`\phi` is cumulative density function,</span>
+<span class="sd">      given :math:`P(x)`.</span>
+<span class="sd">    - do :math:`z = \phi_{N(0,1)}^{-1}(u)`, where :math:`\phi_{N(0,1)}^{-1}` is</span>
+<span class="sd">      the *inverse cdf* of a *standard normal* distribution.</span>
+
+<span class="sd">    The reverse transform will do the inverse of the steps above and go from :math:`z`</span>
+<span class="sd">    to :math:`u` and then to :math:`x`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dtype (data type):</span>
+<span class="sd">            Data type of the data to transform. It will be used when reversing the</span>
+<span class="sd">            transformation. If not provided, the dtype of the fit data will be used.</span>
+<span class="sd">            Defaults to ``None``.</span>
+<span class="sd">        nan (int, str or None):</span>
+<span class="sd">            Indicate what to do with the null values. If an integer is given, replace them</span>
+<span class="sd">            with the given value. If the strings ``&#39;mean&#39;`` or ``&#39;mode&#39;`` are given, replace</span>
+<span class="sd">            them with the corresponding aggregation. If ``None`` is given, do not replace them.</span>
+<span class="sd">            Defaults to ``&#39;mean&#39;``.</span>
+<span class="sd">        null_column (bool):</span>
+<span class="sd">            Whether to create a new column to indicate which values were null or not.</span>
+<span class="sd">            If ``None``, only create a new column when the data contains null values.</span>
+<span class="sd">            If ``True``, always create the new column whether there are null values or not.</span>
+<span class="sd">            If ``False``, do not create the new column.</span>
+<span class="sd">            Defaults to ``None``.</span>
+<span class="sd">        distribution (copulas.univariate.Univariate or str):</span>
+<span class="sd">            Copulas univariate distribution to use. Defaults to ``parametric``. To choose from:</span>
+
+<span class="sd">                * ``univariate``: Let ``copulas`` select the optimal univariate distribution.</span>
+<span class="sd">                  This may result in non-parametric models being used.</span>
+<span class="sd">                * ``parametric``: Let ``copulas`` select the optimal univariate distribution,</span>
+<span class="sd">                  but restrict the selection to parametric distributions only.</span>
+<span class="sd">                * ``bounded``: Let ``copulas`` select the optimal univariate distribution,</span>
+<span class="sd">                  but restrict the selection to bounded distributions only.</span>
+<span class="sd">                  This may result in non-parametric models being used.</span>
+<span class="sd">                * ``semi_bounded``: Let ``copulas`` select the optimal univariate distribution,</span>
+<span class="sd">                  but restrict the selection to semi-bounded distributions only.</span>
+<span class="sd">                  This may result in non-parametric models being used.</span>
+<span class="sd">                * ``parametric_bounded``: Let ``copulas`` select the optimal univariate</span>
+<span class="sd">                  distribution, but restrict the selection to parametric and bounded distributions</span>
+<span class="sd">                  only.</span>
+<span class="sd">                * ``parametric_semi_bounded``: Let ``copulas`` select the optimal univariate</span>
+<span class="sd">                  distribution, but restrict the selection to parametric and semi-bounded</span>
+<span class="sd">                  distributions only.</span>
+<span class="sd">                * ``gaussian``: Use a Gaussian distribution.</span>
+<span class="sd">                * ``gamma``: Use a Gamma distribution.</span>
+<span class="sd">                * ``beta``: Use a Beta distribution.</span>
+<span class="sd">                * ``student_t``: Use a Student T distribution.</span>
+<span class="sd">                * ``gussian_kde``: Use a GaussianKDE distribution. This model is non-parametric,</span>
+<span class="sd">                  so using this will make ``get_parameters`` unusable.</span>
+<span class="sd">                * ``truncated_gaussian``: Use a Truncated Gaussian distribution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_DISTRIBUTIONS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;univariate&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">,</span>
+        <span class="s1">&#39;parametric&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">,</span> <span class="p">{</span>
+                <span class="s1">&#39;parametric&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">ParametricType</span><span class="o">.</span><span class="n">PARAMETRIC</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;bounded&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;bounded&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">BoundedType</span><span class="o">.</span><span class="n">BOUNDED</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;semi_bounded&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;bounded&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">BoundedType</span><span class="o">.</span><span class="n">SEMI_BOUNDED</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;parametric_bounded&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;parametric&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">ParametricType</span><span class="o">.</span><span class="n">PARAMETRIC</span><span class="p">,</span>
+                <span class="s1">&#39;bounded&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">BoundedType</span><span class="o">.</span><span class="n">BOUNDED</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;parametric_semi_bounded&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;parametric&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">ParametricType</span><span class="o">.</span><span class="n">PARAMETRIC</span><span class="p">,</span>
+                <span class="s1">&#39;bounded&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">BoundedType</span><span class="o">.</span><span class="n">SEMI_BOUNDED</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;gaussian&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">GaussianUnivariate</span><span class="p">,</span>
+        <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">GammaUnivariate</span><span class="p">,</span>
+        <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">BetaUnivariate</span><span class="p">,</span>
+        <span class="s1">&#39;student_t&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">StudentTUnivariate</span><span class="p">,</span>
+        <span class="s1">&#39;gaussian_kde&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">GaussianKDE</span><span class="p">,</span>
+        <span class="s1">&#39;truncated_gaussian&#39;</span><span class="p">:</span> <span class="n">univariate</span><span class="o">.</span><span class="n">TruncatedGaussian</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">_univariate</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;parametric&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="n">nan</span><span class="p">,</span> <span class="n">null_column</span><span class="o">=</span><span class="n">null_column</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">distribution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_DISTRIBUTIONS</span><span class="p">[</span><span class="n">distribution</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_distribution</span> <span class="o">=</span> <span class="n">distribution</span>
+
+    <span class="k">def</span> <span class="nf">_get_univariate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">distribution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distribution</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">distribution</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">distribution</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="o">**</span><span class="n">distribution</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="n">univariate</span><span class="o">.</span><span class="n">Univariate</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">distribution</span><span class="p">()</span>
+
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Invalid distribution: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distribution</span><span class="p">))</span>
+
+<div class="viewcode-block" id="GaussianCopulaTransformer.fit"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.GaussianCopulaTransformer.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit the transformer to the data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to fit to.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_univariate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_univariate</span><span class="p">()</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_univariate</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_copula_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">cdf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_univariate</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">cdf</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span> <span class="o">+</span> <span class="n">EPSILON</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">EPSILON</span><span class="p">))</span>
+
+<div class="viewcode-block" id="GaussianCopulaTransformer.transform"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.GaussianCopulaTransformer.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transform numerical data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.Series or numpy.ndarray):</span>
+<span class="sd">                Data to transform.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            numpy.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">transformed</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">transformed</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">transformed</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_copula_transform</span><span class="p">(</span><span class="n">transformed</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_copula_transform</span><span class="p">(</span><span class="n">transformed</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">transformed</span></div>
+
+<div class="viewcode-block" id="GaussianCopulaTransformer.reverse_transform"><a class="viewcode-back" href="../../../api/rdt.transformers.numerical.html#rdt.transformers.GaussianCopulaTransformer.reverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">reverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert data back into the original format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (numpy.ndarray):</span>
+<span class="sd">                Data to transform.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.Series</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_univariate</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_univariate</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reverse_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

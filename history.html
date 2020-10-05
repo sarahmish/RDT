@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History &mdash; RDT 0.2.5 documentation</title>
+  <title>History &mdash; RDT 0.2.6 documentation</title>
   
 
   
@@ -27,6 +27,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -149,35 +150,36 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">History</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.2.5 - 2020-09-18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.2.6 - 2020-10-05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.2.5 - 2020-09-18</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#bugs-fixed">Bugs Fixed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.2.4 - 2020-08-08</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.2.4 - 2020-08-08</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#general-improvements">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">0.2.3 - 2020-07-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">0.2.2 - 2020-06-26</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">Bugs Fixed</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.2.3 - 2020-07-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.2.2 - 2020-06-26</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id15">Bugs Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id17">0.2.0 - 2019-10-15</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id17">0.2.1 - 2020-01-17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Bugs Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">0.2.0 - 2019-10-15</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#issues">Issues</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">0.1.3 - 2019-09-24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id23">0.1.3 - 2019-09-24</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id22">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">General Improvements</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id29">0.1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id30">0.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id31">0.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id32">0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id33">0.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id34">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +251,14 @@
   <div class="section" id="history">
 <h1>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.2.5 - 2020-09-18<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.2.6 - 2020-10-05<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add GaussianCopulaTransformer - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/125">#125</a> by &#64;csala</p></li>
+<li><p>dtype category error - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/124">#124</a> by &#64;csala</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>0.2.5 - 2020-09-18<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>Miunor bugfixing release.</p>
 </div>
 </div>
@@ -261,8 +270,8 @@
 <li><p>All NaN column produces NaN values enhancement - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/121">#121</a> by &#64;csala</p></li>
 <li><p>Make the CategoricalTransformer learn the column dtype and restore it back - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/122">#122</a> by &#64;csala</p></li>
 </ul>
-<div class="section" id="id6">
-<h2>0.2.4 - 2020-08-08<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>0.2.4 - 2020-08-08<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-improvements">
 <h3>General Improvements<a class="headerlink" href="#general-improvements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -271,32 +280,32 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>0.2.3 - 2020-07-09<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h2>0.2.3 - 2020-07-09<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Implement OneHot and Label encoding as transformers - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/112">#112</a> by &#64;csala</p></li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h2>0.2.2 - 2020-06-26<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id12">
-<h3>Bugs Fixed<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h2>0.2.2 - 2020-06-26<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h3>Bugs Fixed<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Escape <code class="docutils literal notranslate"><span class="pre">column_name</span></code> in hypertransformer - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/110">#110</a> by &#64;csala</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="id14">
-<h2>0.2.1 - 2020-01-17<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id15">
-<h3>Bugs Fixed<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h2>0.2.1 - 2020-01-17<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3>Bugs Fixed<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Boolean Transformer fails to revert when there are NO nulls - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/103">#103</a> by &#64;JDTheRipperPC</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="id17">
-<h2>0.2.0 - 2019-10-15<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h2>0.2.0 - 2019-10-15<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
 <p>This version comes with a brand new API and internal implementation, removing the old
 metadata JSON from the user provided arguments, and making each transformer work only
 with <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> of their corresponding data type.</p>
@@ -313,16 +322,16 @@ release possible.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id20">
-<h2>0.1.3 - 2019-09-24<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h2>0.1.3 - 2019-09-24<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="new-features">
 <h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Add attributes NullTransformer and col_meta - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/30">#30</a> by &#64;ManuelAlvarezC</p></li>
 </ul>
 </div>
-<div class="section" id="id22">
-<h3>General Improvements<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3>General Improvements<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Integrate with CodeCov - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/89">#89</a> by &#64;csala</p></li>
 <li><p>Remake Sphinx Documentation - Issue <a class="reference external" href="https://github.com/sdv-dev/RDT/issues/96">#96</a> by &#64;JDTheRipperPC</p></li>
@@ -333,8 +342,8 @@ release possible.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id29">
-<h2>0.1.2<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id32">
+<h2>0.1.2<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add a numerical transformer for positive numbers.</p></li>
 <li><p>Add option to anonymize data on categorical transformer.</p></li>
@@ -346,8 +355,8 @@ release possible.</p>
 <li><p>Refactor performance-wise the transformers.</p></li>
 </ul>
 </div>
-<div class="section" id="id30">
-<h2>0.1.1<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id33">
+<h2>0.1.1<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Improve handling of NaN in NumberTransformer and CatTransformer.</p></li>
 <li><p>Add unittests for HyperTransformer.</p></li>
@@ -358,8 +367,8 @@ release possible.</p>
 <li><p>Merge <code class="docutils literal notranslate"><span class="pre">rdt.utils</span></code> into <code class="docutils literal notranslate"><span class="pre">HyperTransformer</span></code> class.</p></li>
 </ul>
 </div>
-<div class="section" id="id31">
-<h2>0.1.0<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h2>0.1.0<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>First release on PyPI.</p></li>
 </ul>
