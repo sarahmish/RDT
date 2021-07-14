@@ -229,9 +229,11 @@ class OneHotEncodingTransformer(BaseTransformer):
                 Data to fit the transformer to.
         """
         data = self._prepare_data(data)
-        data[pd.isnull(data)] = np.nan
-        self.dummy_na = pd.isnull(data).any()
-        self.dummies = list(pd.unique(data))
+        null = pd.isnull(data)
+        self.dummy_na = null.any()
+        self.dummies = list(pd.unique(data[~null]))
+        if self.dummy_na:
+            self.dummies.append(np.nan)
 
     def transform(self, data):
         """Replace each category with the OneHot vectors.
