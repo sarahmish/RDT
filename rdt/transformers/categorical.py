@@ -249,7 +249,7 @@ class OneHotEncodingTransformer(BaseTransformer):
         dummies = pd.get_dummies(data, dummy_na=self.dummy_na)
         array = dummies.reindex(columns=self.dummies, fill_value=0).values.astype(int)
         if self.error_on_unknown and (array.sum() == 0).any():
-            raise ValueError(f'The value was not seen during the fit stage.')
+            raise ValueError('Attempted to transform values that was not seen during fit stage.')
 
         return array
 
